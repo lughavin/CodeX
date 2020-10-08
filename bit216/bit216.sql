@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 07, 2020 at 07:08 PM
+-- Generation Time: Oct 08, 2020 at 05:02 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -19,22 +19,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bit210`
+-- Database: `bit216`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `centreofficer`
---
-
-CREATE TABLE `centreofficer` (
-  `id` int(11) NOT NULL,
-  `username` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL,
-  `name` varchar(30) NOT NULL,
-  `position` text NOT NULL DEFAULT 'Tester'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -55,29 +41,22 @@ CREATE TABLE `covidtest` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `patient`
---
-
-CREATE TABLE `patient` (
-  `id` int(11) NOT NULL,
-  `username` varchar(30) NOT NULL,
-  `pasword` varchar(30) NOT NULL,
-  `name` varchar(30) NOT NULL,
-  `patientType` varchar(30) NOT NULL,
-  `symptoms` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `testcentre`
 --
 
 CREATE TABLE `testcentre` (
   `id` int(11) NOT NULL,
   `centreName` varchar(30) NOT NULL,
-  `centreOfficer` int(11) NOT NULL
+  `centreOfficer` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `testcentre`
+--
+
+INSERT INTO `testcentre` (`id`, `centreName`, `centreOfficer`) VALUES
+(1, 'malawi', 'lughavin'),
+(2, 'klk', 'lughano ghambi');
 
 -- --------------------------------------------------------
 
@@ -87,9 +66,20 @@ CREATE TABLE `testcentre` (
 
 CREATE TABLE `testkit` (
   `id` int(11) NOT NULL,
-  `name` int(11) NOT NULL,
+  `name` varchar(30) NOT NULL,
   `stock` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `testkit`
+--
+
+INSERT INTO `testkit` (`id`, `name`, `stock`) VALUES
+(2, 'kl kit', 458),
+(3, ' jjjjj', 777),
+(4, 'fdsf', 4),
+(5, 'ersfd', 3),
+(6, 'll', 987456321);
 
 -- --------------------------------------------------------
 
@@ -101,29 +91,33 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `username` varchar(30) NOT NULL,
   `password` varchar(30) NOT NULL,
-  `userType` varchar(30) NOT NULL
+  `userType` varchar(30) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `patientType` varchar(30) NOT NULL,
+  `symptoms` varchar(100) NOT NULL,
+  `position` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`, `userType`, `name`, `patientType`, `symptoms`, `position`) VALUES
+(1, 'admin', 'admin', 'admin', '', '', '', ''),
+(2, 'mike', 'mike', 'officer', 'mike lobber', '', '', ''),
+(4, 'jane', 'jane', 'patient', '', '', '', ''),
+(5, 'lughavin', '12345', 'officer', 'lughano ghambi', '', '', 'Tester'),
+(6, 'sfds', 'dfwe', 'officer', 'hgd gfd dg', '', '', 'Tester'),
+(7, 'ghjnhg', 'gfhg', 'officer', 'hrhf', '', '', 'Tester');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `centreofficer`
---
-ALTER TABLE `centreofficer`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `covidtest`
 --
 ALTER TABLE `covidtest`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `patient`
---
-ALTER TABLE `patient`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -149,40 +143,28 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT for table `centreofficer`
---
-ALTER TABLE `centreofficer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `covidtest`
 --
 ALTER TABLE `covidtest`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `patient`
---
-ALTER TABLE `patient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `testcentre`
 --
 ALTER TABLE `testcentre`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `testkit`
 --
 ALTER TABLE `testkit`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

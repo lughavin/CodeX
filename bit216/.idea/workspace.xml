@@ -35,6 +35,9 @@
       <workItem from="1602079191106" duration="391000" />
       <workItem from="1602079596640" duration="10035000" />
       <workItem from="1602090921819" duration="201000" />
+      <workItem from="1602092349502" duration="54000" />
+      <workItem from="1602134545381" duration="5962000" />
+      <workItem from="1602160923302" duration="8385000" />
     </task>
     <servers />
   </component>
@@ -46,5 +49,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1602079585183" />
+    <state x="279" y="153" width="730" height="854" key="dock-window-1" timestamp="1602145988178">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="279" y="153" width="730" height="854" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1602145988178" />
   </component>
 </project>
