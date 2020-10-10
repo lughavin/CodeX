@@ -20,10 +20,10 @@ $_SESSION['findUser']=$username;
 
 
   if ($num==1 && $row['userType'] === 'officer') {
-  header("Location: /bit216/registerTestCentre.php");
+  header("Location: /bit216/testerInterface.html");
 
   } else if ($row['userType'] === 'patient') {
-    header("Location: /bit216/recordTester.html");
+    header("Location: /bit216/####");
   }else if ($row['userType'] === 'admin') {
        header("Location: /bit216/manageTestKit.html");
      }
