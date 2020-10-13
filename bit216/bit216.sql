@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 08, 2020 at 05:02 PM
+-- Generation Time: Oct 13, 2020 at 05:53 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -30,13 +30,25 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `covidtest` (
   `id` int(11) NOT NULL,
-  `testdate` date NOT NULL,
+  `testdate` date NOT NULL DEFAULT current_timestamp(),
   `results` varchar(30) NOT NULL,
   `resultDate` date NOT NULL,
-  `status` varchar(30) NOT NULL,
+  `status` varchar(30) NOT NULL DEFAULT 'pending',
   `patientName` varchar(30) NOT NULL,
-  `officerName` varchar(30) NOT NULL
+  `officerName` varchar(30) NOT NULL,
+  `patientType` varchar(30) NOT NULL,
+  `symptoms` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `covidtest`
+--
+
+INSERT INTO `covidtest` (`id`, `testdate`, `results`, `resultDate`, `status`, `patientName`, `officerName`, `patientType`, `symptoms`) VALUES
+(1, '2020-10-13', '', '0000-00-00', 'pending', 'qqqqq', '', 'Suspected', 'qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq'),
+(2, '2020-10-13', '', '0000-00-00', 'pending', 'rrr', '', 'Close Contact', 'rrrrrrrrrrrrrrrrrr'),
+(3, '2020-10-13', '', '0000-00-00', 'pending', 'rrr', '', 'Close Contact', 'rrrrrrrrrrrrrrrrrr'),
+(4, '2020-10-13', '', '0000-00-00', 'pending', 'rrrr', '', 'Returnee', 'kjnj');
 
 -- --------------------------------------------------------
 
@@ -93,8 +105,6 @@ CREATE TABLE `user` (
   `password` varchar(30) NOT NULL,
   `userType` varchar(30) NOT NULL,
   `name` varchar(30) NOT NULL,
-  `patientType` varchar(30) NOT NULL,
-  `symptoms` varchar(100) NOT NULL,
   `position` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -102,13 +112,22 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `userType`, `name`, `patientType`, `symptoms`, `position`) VALUES
-(1, 'admin', 'admin', 'admin', '', '', '', ''),
-(2, 'mike', 'mike', 'officer', 'mike lobber', '', '', ''),
-(4, 'jane', 'jane', 'patient', '', '', '', ''),
-(5, 'lughavin', '12345', 'officer', 'lughano ghambi', '', '', 'Tester'),
-(6, 'sfds', 'dfwe', 'officer', 'hgd gfd dg', '', '', 'Tester'),
-(7, 'ghjnhg', 'gfhg', 'officer', 'hrhf', '', '', 'Tester');
+INSERT INTO `user` (`id`, `username`, `password`, `userType`, `name`, `position`) VALUES
+(1, 'admin', 'admin', 'admin', '', ''),
+(2, 'mike', 'mike', 'officer', 'mike lobber', ''),
+(4, 'jane', 'jane', 'patient', 'calvin lee', ''),
+(5, 'lughavin', '12345', 'officer', 'lughano ghambi', 'Tester'),
+(6, 'sfds', 'dfwe', 'officer', 'hgd gfd dg', 'Tester'),
+(7, 'ghjnhg', 'gfhg', 'officer', 'hrhf', 'Tester'),
+(8, 'happy', '123', 'officer', 'happy mike', 'Tester'),
+(9, 'tan123', '', '', 'tan', ''),
+(10, 'gggg', 'ggg', 'patient', 'ggg', ''),
+(12, 'qqqqq', 'qqqq', 'patient', 'qqqqq', ''),
+(13, 'sam123', '123', 'patient', 'sam', ''),
+(14, 'sam123', '123', 'patient', 'sam', ''),
+(15, 'rrrr', 'rrr', 'patient', 'rrr', ''),
+(16, 'rrrr', 'kjhiub', 'patient', 'rrr', ''),
+(17, 'mike', '123', 'patient', 'rrrr', '');
 
 --
 -- Indexes for dumped tables
@@ -146,7 +165,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `covidtest`
 --
 ALTER TABLE `covidtest`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `testcentre`
@@ -164,7 +183,7 @@ ALTER TABLE `testkit`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

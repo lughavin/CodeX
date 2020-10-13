@@ -20,7 +20,7 @@ $_SESSION['findUser']=$username;
 
 
   if ($num==1 && $row['userType'] === 'officer') {
-  header("Location: /bit216/testerInterface.html");
+  header("Location: /bit216/testerInterface.php");
 
   } else if ($row['userType'] === 'patient') {
     header("Location: /bit216/####");

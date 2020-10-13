@@ -12,8 +12,6 @@ $sql="SELECT * FROM user WHERE username = '{$_SESSION["findUser"]}' ";
                                 while ($row = $result->fetch_assoc()) {
                                 $user=$row['name'];}
 
-//$user = "{$_SESSION["findUser"]}";
-
         $sql2 = "INSERT INTO testcentre (centreName, centreOfficer)
         VALUES ('$name','$user');";
 
