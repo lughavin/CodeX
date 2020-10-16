@@ -89,9 +89,13 @@ session_start();
                                 <h4 style="color:white;"> &nbsp;Password:</h4>
                                 <input type="password" class="form-control" id="password" name="password"
                                        required/><br>
+                                 <h4 style="color:white;"> &nbsp;ID:</h4><br>
+                                <input type="text" class="form-control" id=passport name="passport"
+                                       placeholder="ID Number" required/>
+                                <br>
 
                                 <div class="form-group">
-                                    <label for="patientType">Patient Type</label>
+                                    <label for="patientType"><h4 style="color:white;"> Patient Type</h4></label>
                                     <select class="form-control" id="patientType" name="patientType">
                                         <option value="Returnee">Returnee</option>
                                         <option value="Quarantined">Quarantined</option>

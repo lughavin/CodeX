@@ -9,10 +9,11 @@ $password=$_POST["password"];
 $patientType=$_POST["patientType"];
 $userType="patient";
 $symptoms=$_POST["symptoms"];
+$passport=$_POST["passport"];
 
 
-$sql="insert into user(name, username, password, userType)
-values('$name','$username','$password','$userType');";
+$sql="insert into user(name, username, password, userType, passport)
+values('$name','$username','$password','$userType','passport');";
 
 $sq3="SELECT * FROM user WHERE username = '{$_SESSION["findUser"]}' ";
 

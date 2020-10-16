@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 13, 2020 at 05:53 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- Generation Time: Oct 16, 2020 at 08:22 AM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -105,29 +104,30 @@ CREATE TABLE `user` (
   `password` varchar(30) NOT NULL,
   `userType` varchar(30) NOT NULL,
   `name` varchar(30) NOT NULL,
-  `position` varchar(30) NOT NULL
+  `position` varchar(30) NOT NULL,
+  `passport` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `userType`, `name`, `position`) VALUES
-(1, 'admin', 'admin', 'admin', '', ''),
-(2, 'mike', 'mike', 'officer', 'mike lobber', ''),
-(4, 'jane', 'jane', 'patient', 'calvin lee', ''),
-(5, 'lughavin', '12345', 'officer', 'lughano ghambi', 'Tester'),
-(6, 'sfds', 'dfwe', 'officer', 'hgd gfd dg', 'Tester'),
-(7, 'ghjnhg', 'gfhg', 'officer', 'hrhf', 'Tester'),
-(8, 'happy', '123', 'officer', 'happy mike', 'Tester'),
-(9, 'tan123', '', '', 'tan', ''),
-(10, 'gggg', 'ggg', 'patient', 'ggg', ''),
-(12, 'qqqqq', 'qqqq', 'patient', 'qqqqq', ''),
-(13, 'sam123', '123', 'patient', 'sam', ''),
-(14, 'sam123', '123', 'patient', 'sam', ''),
-(15, 'rrrr', 'rrr', 'patient', 'rrr', ''),
-(16, 'rrrr', 'kjhiub', 'patient', 'rrr', ''),
-(17, 'mike', '123', 'patient', 'rrrr', '');
+INSERT INTO `user` (`id`, `username`, `password`, `userType`, `name`, `position`, `passport`) VALUES
+(1, 'admin', 'admin', 'admin', '', '', ''),
+(2, 'mike', 'mike', 'officer', 'mike lobber', '', ''),
+(4, 'jane', 'jane', 'patient', 'calvin lee', '', ''),
+(5, 'lughavin', '12345', 'officer', 'lughano ghambi', 'Tester', ''),
+(6, 'sfds', 'dfwe', 'officer', 'hgd gfd dg', 'Tester', ''),
+(7, 'ghjnhg', 'gfhg', 'officer', 'hrhf', 'Tester', ''),
+(8, 'happy', '123', 'officer', 'happy mike', 'Tester', ''),
+(9, 'tan123', '', '', 'tan', '', ''),
+(10, 'gggg', 'ggg', 'patient', 'ggg', '', ''),
+(12, 'qqqqq', 'qqqq', 'patient', 'qqqqq', '', ''),
+(13, 'sam123', '123', 'patient', 'sam', '', ''),
+(14, 'sam123', '123', 'patient', 'sam', '', ''),
+(15, 'rrrr', 'rrr', 'patient', 'rrr', '', ''),
+(16, 'rrrr', 'kjhiub', 'patient', 'rrr', '', ''),
+(17, 'mike', '123', 'patient', 'rrrr', '', '');
 
 --
 -- Indexes for dumped tables
