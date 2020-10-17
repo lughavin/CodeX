@@ -49,9 +49,9 @@ session_start();
                     <a class="nav-link active" href="recordTester.html">Record Test Officer</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link active" href="manageTestKit.html">Manage Test Kit Stock</a>
+                    <a class="nav-link active" href="manageTestKit.php">Manage Test Kit Stock</a>
                 </li>
-                <a class="nav-link" href="index.html"><span class="sr-only"></span>Logout</a>
+                <a class="nav-link" href="logout.php"><span class="sr-only"></span>Logout</a>
                 </li>
 
             </ul>

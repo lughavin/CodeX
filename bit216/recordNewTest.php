@@ -49,7 +49,7 @@ session_start();
                     <a class="nav-link active" href="index.html">Home</a>
                 </li>
 
-                <a class="nav-link" href="testerInterface.html"><span class="sr-only"></span>Back</a>
+                <a class="nav-link" href="testerInterface.php"><span class="sr-only"></span>Back</a>
                 </li>
 
             </ul>
@@ -90,7 +90,7 @@ session_start();
                                 <input type="password" class="form-control" id="password" name="password"
                                        required/><br>
                                  <h4 style="color:white;"> &nbsp;ID:</h4><br>
-                                <input type="text" class="form-control" id=passport name="passport"
+                                <input type="text" class="form-control" id="passport" name="passport"
                                        placeholder="ID Number" required/>
                                 <br>
 
@@ -147,36 +147,19 @@ session_start();
 
 <!-- Template Main Javascript File -->
 <script src="js/main.js"></script>
-<!-- JavaScript Confirm-->
-<script type="text/javascript">
-    function fnConfirm() {
-        var objAddress = document.getElementById("address");
-        var objNumUnits = document.getElementById("numUnits");
-        var objSizePerUnit = document.getElementById("sizePerUnit");
-        var objMonthlyRental = document.getElementById("monthlyRental");
 
-        if (objAddress.value == "") {
-            alert("Enter the Address..!!");
-            objMonthlyRequired.focus();
-            return false;
-        } else if (objNumUnits.value == "") {
-            alert("Enter the Num Units..!!");
-            objYearlyRequired.focus();
-            return false;
-        } else if (objSizePerUnit.value == "") {
-            alert("Enter the Size Per Unit..!!");
-            objYearlyRequired.focus();
-            return false;
-        } else if (objMonthlyRental.value == "") {
-            alert("Enter the Monthly Rental..!!");
-            objMonthlyRental.focus();
-            return false;
-        } else {
-            alert("Succeed to set up New Residence")
-        }
+<footer id="main-footer">
+  <div class="row">
+    <div class="col-9">
+      <small>Made in Help University &copy; 2020</small>
+    </div>
 
-    }
-</script>
+    <div class="col-3">
+      <p>This website was developed by Code X team</p>
+    </div>
+
+  </div>
+</footer>
 
 
 </body>

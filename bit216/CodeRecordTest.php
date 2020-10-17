@@ -13,12 +13,11 @@ $passport=$_POST["passport"];
 
 
 $sql="insert into user(name, username, password, userType, passport)
-values('$name','$username','$password','$userType','passport');";
+values('$name','$username','$password','$userType','$passport');";
 
 $sql3="SELECT * FROM user WHERE username = '{$_SESSION["findUser"]}' ";
 
                                 $result = mysqli_query($conn, $sql3);
-                                // echo "user".$_SESSION["findUser"];
                                 // Echo session variables that were set on previous page
                                 while ($row = $result->fetch_assoc()) {
                                 $user=$row['name'];}

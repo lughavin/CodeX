@@ -1,6 +1,5 @@
 <?php
 session_start();
-$appealRejections = $_SESSION['findUser'];
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +51,7 @@ $appealRejections = $_SESSION['findUser'];
                 <li class="nav-item dropdown">
                     <a class="nav-link active" href="recordTester.html">Record Tester</a>
                 </li>
-                <a class="nav-link" href="index.html"><span class="sr-only"></span>Logout</a>
+                <a class="nav-link" href="logout.php"><span class="sr-only"></span>Logout</a>
                 </li>
 
             </ul>
@@ -67,7 +66,7 @@ $appealRejections = $_SESSION['findUser'];
     <div class="container">
         <div class="row">
             <div class="col-1"></div>
-            <div class="col-10">
+                <div class="col-10">
 
                 <blockquote class="blockquote text-center">
                     <b style="font-size:500%; text-align: center; visibility: hidden">Manage Test Kit Stock</b>
@@ -76,12 +75,14 @@ $appealRejections = $_SESSION['findUser'];
         </div>
     </div>
 
-
     <div class="container">
 
         <div class="row">
             <div class="col-md-6">
+
+
                 <div class="card">
+
                     <h4 style="text-align: center">Add New Stock</h4>
                     <div class="card-body">
                         <p class="card-text">
@@ -108,8 +109,35 @@ $appealRejections = $_SESSION['findUser'];
                         <p class="card-text">
                         <form method="POST" action="CodeManage.php">
                             <h4 style="color:black;"> &nbsp;Test Kit ID:</h4><br>
-                            <input type="text" class="form-control" id=testKitID name="testKitID"
-                                   placeholder="Enter Test Kit ID" required/>
+                            <select name="testKitID" class="form-control">
+                            <option>
+
+                                <?php
+                                 include "./db.php";
+
+
+                                 $sql3="SELECT * FROM user WHERE username = '{$_SESSION["findUser"]}' ";
+
+                                     $result = mysqli_query($conn, $sql3);
+                                     // Echo session variables that were set on previous page
+                                     while ($row = $result->fetch_assoc()) {
+                                     $user=$row['name'];}
+
+
+                                    $sql="SELECT * from testkit WHERE officerName = '$user' ";
+                                    $result1 = $conn-> query($sql);
+
+                                    if ($result1) {
+                                      while ($row1= mysqli_fetch_array($result1)) {
+                                        $new=$row1["id"];
+                                        echo " TestKit ID <br> <option>$new<br></option> ";
+                                      }
+                                    }
+                                      $conn ->close();
+
+                                 ?>
+                                 </option>
+                                 </select><br>
                             <br>
                             <h4 style="color:black;"> &nbsp;Stock:</h4><br>
                             <input type="number" class="form-control" id=testKitStock name="testKitStock"

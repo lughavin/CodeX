@@ -1,5 +1,6 @@
 <?php 
   include "./db.php";
+  session_start();
 
 error_reporting(0);
 ini_set('display_errors', 0);
@@ -14,8 +15,15 @@ $sql2="UPDATE testkit
 SET stock = '$testKitStock'
 WHERE id = '$ID';";
 
-$sql="insert into testkit(name, stock)
-values('$testKitName','$testKitStock');";
+$sql3="SELECT * FROM user WHERE username = '{$_SESSION["findUser"]}' ";
+
+                                $result = mysqli_query($conn, $sql3);
+                                // Echo session variables that were set on previous page
+                                while ($row = $result->fetch_assoc()) {
+                                $user=$row['name'];}
+
+$sql="insert into testkit(name, stock, officerName)
+values('$testKitName','$testKitStock','$user');";
 
 
 
@@ -25,7 +33,7 @@ if ($qry2) {
 	echo '<script>';
                 echo 'alert(" Updated Successfully ")';
                 echo '</script>';
-    	echo '<script> window.location.assign("../bit216/manageTestKit.html"); </script>';
+    	echo '<script> window.location.assign("../bit216/manageTestKit.php"); </script>';
 
 }
  else {
@@ -38,7 +46,7 @@ if ($qry) {
 	 echo '<script>';
             echo 'alert(" Added Successfully ")';
             echo '</script>';
-	echo '<script> window.location.assign("../bit216/manageTestKit.html"); </script>';
+	echo '<script> window.location.assign("../bit216/manageTestKit.php"); </script>';
 
 }
  else {

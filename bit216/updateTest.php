@@ -137,36 +137,17 @@ session_start();
 <!-- Template Main Javascript File -->
 <script src="js/main.js"></script>
 <!-- JavaScript Confirm-->
-<script type="text/javascript">
-    function fnConfirm() {
-        var objAddress = document.getElementById("address");
-        var objNumUnits = document.getElementById("numUnits");
-        var objSizePerUnit = document.getElementById("sizePerUnit");
-        var objMonthlyRental = document.getElementById("monthlyRental");
+<footer id="main-footer">
+  <div class="row">
+    <div class="col-9">
+      <small>Made in Help University &copy; 2020</small>
+    </div>
 
-        if (objAddress.value == "") {
-            alert("Enter the Address..!!");
-            objMonthlyRequired.focus();
-            return false;
-        } else if (objNumUnits.value == "") {
-            alert("Enter the Num Units..!!");
-            objYearlyRequired.focus();
-            return false;
-        } else if (objSizePerUnit.value == "") {
-            alert("Enter the Size Per Unit..!!");
-            objYearlyRequired.focus();
-            return false;
-        } else if (objMonthlyRental.value == "") {
-            alert("Enter the Monthly Rental..!!");
-            objMonthlyRental.focus();
-            return false;
-        } else {
-            alert("Succeed to set up New Residence")
-        }
+    <div class="col-3">
+      <p>This website was developed by Code X team</p>
+    </div>
 
-    }
-</script>
-
-
+  </div>
+</footer>
 </body>
 </html>

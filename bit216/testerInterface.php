@@ -49,7 +49,7 @@ session_start();
                     <a class="nav-link active" href="index.html">Home</a>
                 </li>
 
-                <a class="nav-link" href="index.html"><span class="sr-only"></span>Logout</a>
+                <a class="nav-link" href="logout.php"><span class="sr-only"></span>Logout</a>
                 </li>
 
             </ul>
@@ -58,6 +58,7 @@ session_start();
 </nav>
 
 <div id="home" class="intro2 route bg-image" style="background-image: url(img/dna.jpg)">
+
 
 
     <div class="overlay-itro"></div>
@@ -74,7 +75,17 @@ session_start();
                             <div class="title-box-2">
                                 <br>
                                 <h5 style="color:white;" class="title-left">
-                                    Welcome Tester
+                                     <?php
+                                        include "./db.php";
+
+                                        $sql="SELECT * FROM user WHERE username = '{$_SESSION["findUser"]}' ";
+
+                                        $result = mysqli_query($conn, $sql);
+                                        // Echo session variables that were set on previous page
+                                        while ($row = $result->fetch_assoc()) {
+                                        echo "<b><h2 style='color:white;' > Welcome Tester  ".$row['name']."</h2></b>"."<br>";}
+
+                                    ?>
                                 </h5>
                                 <br><br>
                                 <img src="img/thermometer.png" style="width:35px;height:70px">
@@ -84,7 +95,7 @@ session_start();
                                 <br><br>
                                 <img src="img/update.png" style="width:70px;height:70px">
                                 <h4 style="color: white; ">Update for returning patient.</h4>
-                                <a href="updateTest.php" class="button"> Update test result</a>
+                                <a href="recordNewTest.php" class="button"> Update test result</a>
                             </div>
                         </div>
                     </div>
@@ -116,37 +127,17 @@ session_start();
 
 <!-- Template Main Javascript File -->
 <script src="js/main.js"></script>
-<!-- JavaScript Confirm-->
-<script type="text/javascript">
-    function fnConfirm() {
-        var objAddress = document.getElementById("address");
-        var objNumUnits = document.getElementById("numUnits");
-        var objSizePerUnit = document.getElementById("sizePerUnit");
-        var objMonthlyRental = document.getElementById("monthlyRental");
+<footer id="main-footer">
+  <div class="row">
+    <div class="col-9">
+      <small>Made in Help University &copy; 2020</small>
+    </div>
 
-        if (objAddress.value == "") {
-            alert("Enter the Address..!!");
-            objMonthlyRequired.focus();
-            return false;
-        } else if (objNumUnits.value == "") {
-            alert("Enter the Num Units..!!");
-            objYearlyRequired.focus();
-            return false;
-        } else if (objSizePerUnit.value == "") {
-            alert("Enter the Size Per Unit..!!");
-            objYearlyRequired.focus();
-            return false;
-        } else if (objMonthlyRental.value == "") {
-            alert("Enter the Monthly Rental..!!");
-            objMonthlyRental.focus();
-            return false;
-        } else {
-            alert("Succeed to set up New Residence")
-        }
+    <div class="col-3">
+      <p>This website was developed by Code X team</p>
+    </div>
 
-    }
-</script>
-
-
+  </div>
+</footer>
 </body>
 </html>
