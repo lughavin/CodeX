@@ -74,17 +74,28 @@ session_start();
                             <div class="title-box-2">
                                 <br>
                                 <h5 style="color:white;" class="title-left">
-                                    Welcome Tester
+                                    Welcome Patient
                                 </h5>
-                                <br><br>
-                                <img src="img/thermometer.png" style="width:35px;height:70px">
-                                <h4 style="color: white; ">Test for new patient.</h4>
-                                <a href="recordNewTest.php" class="button"> Record new test </a>
 
                                 <br><br>
-                                <img src="img/update.png" style="width:70px;height:70px">
-                                <h4 style="color: white; ">Update for returning patient.</h4>
-                                <a href="updateTest.php" class="button"> Update test result</a>
+                                
+                                <h4 style="color: white; ">View Testing History</h4>
+                                <img src="img/mGlass.png" style="width:70px;height:70px">
+
+                                <tr>
+                                    <th>Status</th>
+                                    <th>Patient Name</th>
+                                    <th>Patient Type</th>
+                                    <th>Symptoms</th>
+                                </tr>
+
+                                <?php
+                                $conn = mysqli_connect("localhost" , "root", "", "bit216");
+
+                                ?>
+
+
+
                             </div>
                         </div>
                     </div>

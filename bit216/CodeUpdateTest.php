@@ -3,22 +3,18 @@
 session_start();
 //error_reporting(0);
 //ini_set('display_errors', 0);
-$name=$_POST["patientName"];
-$username=$_POST["username"];
-$password=$_POST["password"];
+$id=$_POST["id"];
 $patientType=$_POST["patientType"];
 $userType="patient";
 $symptoms=$_POST["symptoms"];
-$passport=$_POST["passport"];
 
 
-$sql="insert into user(name, username, password, userType, passport)
-values('$name','$username','$password','$userType','passport');";
+$sql="insert into user(name, username, password, userType)
+values('$name','$username','$password','$userType');";
 
-$sql3="SELECT * FROM user WHERE username = '{$_SESSION["findUser"]}' ";
+$sq3="SELECT * FROM user WHERE username = '{$_SESSION["findUser"]}' ";
 
                                 $result = mysqli_query($conn, $sql3);
-                                // echo "user".$_SESSION["findUser"];
                                 // Echo session variables that were set on previous page
                                 while ($row = $result->fetch_assoc()) {
                                 $user=$row['name'];}

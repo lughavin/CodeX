@@ -7,7 +7,7 @@ session_start();
 <head>
     <meta charset="utf-8">
 
-    <title>Tester Interface</title>
+    <title>Update Test</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -49,7 +49,7 @@ session_start();
                     <a class="nav-link active" href="index.html">Home</a>
                 </li>
 
-                <a class="nav-link" href="index.html"><span class="sr-only"></span>Logout</a>
+                <a class="nav-link" href="testerInterface.php"><span class="sr-only"></span>Back</a>
                 </li>
 
             </ul>
@@ -74,24 +74,44 @@ session_start();
                             <div class="title-box-2">
                                 <br>
                                 <h5 style="color:white;" class="title-left">
-                                    Welcome Tester
+                                    Enter the patient details:
                                 </h5>
-                                <br><br>
-                                <img src="img/thermometer.png" style="width:35px;height:70px">
-                                <h4 style="color: white; ">Test for new patient.</h4>
-                                <a href="recordNewTest.php" class="button"> Record new test </a>
-
-                                <br><br>
-                                <img src="img/update.png" style="width:70px;height:70px">
-                                <h4 style="color: white; ">Update for returning patient.</h4>
-                                <a href="updateTest.php" class="button"> Update test result</a>
                             </div>
+                            <form method="POST" action="CodeUpdateTest.php">
+
+                                <h4 style="color:white;"> &nbsp; Patient ID:</h4>
+                                <input type="text" class="form-control" id="id" name="id" required/><br>
+
+
+                                <div class="form-group">
+                                    <h4 style="color:white;"> &nbsp;Patient Type:</h4>
+                                    <select class="form-control" id="patientType" name="patientType">
+                                        <option value="Returnee">Returnee</option>
+                                        <option value="Quarantined">Quarantined</option>
+                                        <option value="Close Contact">Close Contact</option>
+                                        <option value="Infected">Infected</option>
+                                        <option value="Suspected">Suspected</option>
+                                    </select>
+                                </div>
+                                <br>
+                                <h4 style="color:white;"> &nbsp;Symptoms:</h4>
+                                <input type="text" class="form-control" id="symptoms" name="symptoms"
+                                       placeholder="Redness in the eyes, Running Nose , etc" required/>
+
+
+                                <br>
+                                <button type="submit" name="submit" onclick=fnConfirm() id="submit"
+                                        class="button button-a button-big button-rouded">Submit
+                                </button>
+
+                                <button type="reset" value="Reset" class="button button-a button-big button-rouded">
+                                    Reset
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
                 <br><br>
-                <h4 style="color:white;"></h4>
-
 
             </div>
         </div>
