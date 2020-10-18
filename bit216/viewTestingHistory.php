@@ -80,7 +80,7 @@ session_start();
                                 <br><br>
                                 
                                 <h4 style="color: white; ">View Testing History</h4>
-                                <img src="img/mGlass.png" style="width:70px;height:70px">
+                                <img src="img/update.png" style="width:70px;height:70px">
 
                                 <tr>
                                     <th>Status</th>

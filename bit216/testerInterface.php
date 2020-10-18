@@ -95,7 +95,7 @@ session_start();
                                 <br><br>
                                 <img src="img/update.png" style="width:70px;height:70px">
                                 <h4 style="color: white; ">Update for returning patient.</h4>
-                                <a href="recordNewTest.php" class="button"> Update test result</a>
+                                <a href="UpdateTest.php" class="button"> Update test result</a>
                             </div>
                         </div>
                     </div>
