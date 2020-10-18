@@ -1,9 +1,13 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
 
-    <title>Register New Test Centre</title>
+    <title>Tester Interface</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -32,7 +36,7 @@
 <!--/ Nav Star /-->
 <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
     <div class="container">
-        <a class="navbar-brand js-scroll" href="registerTestCentre.html">Register Test Centre</a>
+        <img src="img/logo_main.png" style="width:200px;height:70px" class="nav-link js-scroll active" href="#home">
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
                 aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span></span>
@@ -42,12 +46,10 @@
         <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="recordTestOfficer.html">Record Test Officer</a>
+                    <a class="nav-link active" href="index.html">Home</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link active" href="manageTestKit.html">Manage Test Kit Stock</a>
-                </li>
-                <a class="nav-link" href="index.html"><span class="sr-only"></span>Logout</a>
+
+                <a class="nav-link" href="logout.php"><span class="sr-only"></span>Logout</a>
                 </li>
 
             </ul>
@@ -55,7 +57,8 @@
     </div>
 </nav>
 
-<div id="home" class="intro2 route bg-image" style="background-image: url(img/House_Bg.jpg)">
+<div id="home" class="intro2 route bg-image" style="background-image: url(img/dna.jpg)">
+
 
 
     <div class="overlay-itro"></div>
@@ -72,24 +75,41 @@
                             <div class="title-box-2">
                                 <br>
                                 <h5 style="color:white;" class="title-left">
-                                    Please enter the name of the test centre you would like to register.
+                                     <?php
+                                        include "./db.php";
+
+                                        $sql="SELECT * FROM user WHERE username = '{$_SESSION["findUser"]}' ";
+
+                                        $result = mysqli_query($conn, $sql);
+                                        // Echo session variables that were set on previous page
+                                        while ($row = $result->fetch_assoc()) {
+                                        echo "<b><h2 style='color:white;' > Welcome Tester  ".$row['name']."</h2></b>"."<br>";}
+
+                                    ?>
                                 </h5>
+                                <br><br>
+                                <img src="img/thermometer.png" style="width:35px;height:70px">
+                                <h4 style="color: white; ">Test for new patient.</h4>
+                                <a href="recordNewTest.php" class="button"> Record new test </a>
+
+                                <br><br>
+                                <img src="img/update.png" style="width:70px;height:70px">
+                                <h4 style="color: white; ">Update for returning patient.</h4>
+                                <a href="UpdateTest.php" class="button"> Update test result</a>
                             </div>
-                            <form method="POST" action="addNewResidence.php">
-                                <h4 style="color:white;"> &nbsp;Test Centre Name:</h4><br>
-                                <input type="text" class="form-control" id=testCentre name="testCentre"
-                                       placeholder="Test Centre Name" required/>
-                                <br>
-                                <button type="submit" name="register" class="button button-a button-big button-rouded"><b>Register</b></button>
-                            </form>
                         </div>
                     </div>
                 </div>
+                <br><br>
+                <h4 style="color:white;"></h4>
+
+
             </div>
         </div>
     </div>
 </div>
 </div>
+
 
 <!-- JavaScript Libraries -->
 <script src="lib/jquery/jquery.min.js"></script>
@@ -107,37 +127,17 @@
 
 <!-- Template Main Javascript File -->
 <script src="js/main.js"></script>
-<!-- JavaScript Confirm-->
-<script type="text/javascript">
-    function fnConfirm() {
-        var objAddress = document.getElementById("address");
-
-        if (objAddress.value == "") {
-            alert("Enter Test Centre Name..!!");
-            objMonthlyRequired.focus();
-            return false;
-        } else {
-            alert("Succeed to set up New Residence")
-        }
-
-    }
-
- </script>
-
 <footer id="main-footer">
-    <div class="row">
-        <div class="col-9">
-            <small>Made in Help University &copy; 2020</small>
-        </div>
-
-        <div class="col-3">
-            <p>This website was developed by Code X team</p>
-        </div>
-
+  <div class="row">
+    <div class="col-9">
+      <small>Made in Help University &copy; 2020</small>
     </div>
+
+    <div class="col-3">
+      <p>This website was developed by Code X team</p>
+    </div>
+
+  </div>
 </footer>
-
-
-
 </body>
 </html>

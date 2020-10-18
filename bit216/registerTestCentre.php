@@ -1,9 +1,13 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
 
-    <title>Manage Test Kit Stock</title>
+    <title>Register New Test Centre</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -32,7 +36,7 @@
 <!--/ Nav Star /-->
 <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
     <div class="container">
-        <a class="navbar-brand js-scroll" href="manageTestKit.html">Manage Test Kit Stock</a>
+        <img src="img/logo_main.png" style="width:200px;height:70px" class="nav-link js-scroll active" href="#home">
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
                 aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span></span>
@@ -42,12 +46,12 @@
         <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="registerTestCentre.html">Register Test Centre</a>
+                    <a class="nav-link active" href="recordTester.html">Record Test Officer</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link active" href="recordTestOfficer.html">Record Test Officer</a>
+                    <a class="nav-link active" href="manageTestKit.php">Manage Test Kit Stock</a>
                 </li>
-                <a class="nav-link" href="index.html"><span class="sr-only"></span>Logout</a>
+                <a class="nav-link" href="logout.php"><span class="sr-only"></span>Logout</a>
                 </li>
 
             </ul>
@@ -55,73 +59,58 @@
     </div>
 </nav>
 
-<div id="home" class="intro2 route bg-image" style="background-image: url(img/House_Bg.jpg)">
+<div id="home" class="intro2 route bg-image" style="background-image: url(img/dna.jpg)">
 
 
     <div class="overlay-itro"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="col-10">
-
-                <blockquote class="blockquote text-center">
-                    <b style="font-size:500%; text-align: center; visibility: hidden">Manage Test Kit Stock</b>
-                </blockquote>
-            </div>
-        </div>
-    </div>
 
 
     <div class="container">
 
         <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <h4 style="text-align: center">Add New Stock</h4>
-                    <div class="card-body">
-                        <p class="card-text">
-                        <form method="POST" action="#">
-                            <h4 style="color:black;"> &nbsp;Test Kit Name:</h4><br>
-                            <input type="text" class="form-control" id=testKitName name="testKitName"
-                                   placeholder="Enter Test Kit name" required/>
-                            <br>
-                            <h4 style="color:black;"> &nbsp;Stock:</h4><br>
-                            <input type="number" class="form-control" id=testKitStock name="testKitStock"
-                                   required/>
-                            <br>
-                        <button type="submit" name="update" class="button button-a button-big button-rouded"><b>Add</b></button>
-                        </form>
-                        </p>
-                    </div>
-                </div>
-            </div>
+            <div class="col-sm-12">
+                <div class="contact-mf">
+                    <!--<div id="contact" class="box-shadow-full">-->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="title-box-2">
+                                <br>
+                                <h5 style="color:white;" class="title-left">
+                                    Please enter the name of the test centre you would like to register.
+                                </h5><br>
 
-            <div class="col-6">
-                <div class="card">
-                    <h4 style="text-align: center">Update Existing Stock</h4>
-                    <div class="card-body">
-                        <p class="card-text">
-                        <form method="POST" action="#">
-                            <h4 style="color:black;"> &nbsp;Test Kit ID:</h4><br>
-                            <input type="text" class="form-control" id=testKitID name="testKitID"
-                                   placeholder="Enter Test Kit ID" required/>
-                            <br>
-                            <h4 style="color:black;"> &nbsp;Stock:</h4><br>
-                            <input type="number" class="form-control" id=testKitStock name="testKitStock"
-                                   required/>
-                            <br>
-                        <button type="submit" name="update" class="button button-a button-big button-rouded"><b>Update</b></button>
-                        </form>
-                        </p>
+                                <?php
+                                include "./db.php";
+
+                                $sql="SELECT * FROM user WHERE username = '{$_SESSION["findUser"]}' ";
+
+                                $result = mysqli_query($conn, $sql);
+                                // Echo session variables that were set on previous page
+                                while ($row = $result->fetch_assoc()) {
+                                echo "<b><h2 style='color:white;' > Welcome ".$row['name']."</h2></b>"."<br>";}
+
+
+                                ?>
+
+                            </div>
+
+                            <form method="POST" action="CodeRegisterTestCentre.php">
+                                <h4 style="color:white;"> &nbsp;Test Centre Name:</h4><br>
+                                <input type="text" class="form-control" id="testCentre" name="testCentre"
+                                       placeholder="Test Centre Name" required/>
+                                <br>
+                                <button type="submit" id="register" name="register" class="button button-a button-big button-rouded"><b>Register</b></button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
+</div>
 
-
+<!-- JavaScript Libraries -->
 <script src="lib/jquery/jquery.min.js"></script>
 <script src="lib/jquery/jquery-migrate.min.js"></script>
 <script src="lib/popper/popper.min.js"></script>
@@ -151,7 +140,8 @@
         }
 
     }
-</script>
+
+ </script>
 
 <footer id="main-footer">
     <div class="row">
@@ -165,6 +155,7 @@
 
     </div>
 </footer>
+
 
 
 </body>
