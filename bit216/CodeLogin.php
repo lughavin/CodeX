@@ -25,7 +25,7 @@ $_SESSION['findUser']=$username;
   } else if ($row['userType'] === 'patient') {
     header("Location: /bit216/viewTestingHistory.php");
   }else if ($row['userType'] === 'manager') {
-       header("Location: /bit216/manageTestKit.php");
+       header("Location: /bit216/managerInterface.php");
      }
   else {
     echo "<script>
