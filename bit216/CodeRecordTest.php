@@ -17,10 +17,10 @@ values('$name','$username','$password','$userType','$passport');";
 
 $sql3="SELECT * FROM user WHERE username = '{$_SESSION["findUser"]}' ";
 
-                                $result = mysqli_query($conn, $sql3);
-                                // Echo session variables that were set on previous page
-                                while ($row = $result->fetch_assoc()) {
-                                $user=$row['name'];}
+        $result = mysqli_query($conn, $sql3);
+        // Echo session variables that were set on previous page
+        while ($row = $result->fetch_assoc()) {
+        $user=$row['name'];}
 
 
 $sql2="insert into covidtest(patientName, officerName, patientType, symptoms)
