@@ -15,8 +15,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/andriod project/Welcome-Login-Signup-Page-Flutter-master" />
+    <property name="settings.editor.selected.configurable" value="aws" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -52,6 +52,8 @@
       <workItem from="1603011966777" duration="1749000" />
       <workItem from="1603017612664" duration="3084000" />
       <workItem from="1603036130050" duration="1144000" />
+      <workItem from="1603209866112" duration="120000" />
+      <workItem from="1603702352353" duration="6334000" />
     </task>
     <servers />
   </component>
@@ -59,13 +61,21 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="461" y="165" key="SettingsEditor" timestamp="1602079585183">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1603210668312">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1602079585183" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603210668312" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1603210612050">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603210612050" />
     <state x="279" y="153" width="730" height="854" key="dock-window-1" timestamp="1602145988178">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="279" y="153" width="730" height="854" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1602145988178" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

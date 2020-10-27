@@ -7,9 +7,10 @@ $password =$_POST["password"];
 $name =$_POST["name"];
 $tester = "Tester";
 $userType = "officer";
+$id =$_POST["id"];
 
-        $sql2 = "INSERT INTO user (username, password, userType, name, position)
-        VALUES ('$username', '$password', '$userType', '$name','$tester');";
+        $sql2 = "INSERT INTO user (username, password, userType, name, position,passport)
+        VALUES ('$username', '$password', '$userType', '$name','$tester','$id');";
 
 
 $qry2 = mysqli_query($conn, $sql2);

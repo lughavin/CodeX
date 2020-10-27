@@ -4,16 +4,21 @@
 
 error_reporting(0);
 ini_set('display_errors', 0);
-$ID=$_POST["testKitID"];
+$testKit_Name=$_POST["testKit_Name"];
 $testKitName=$_POST["testKitName"];
 $testKitStock=$_POST["testKitStock"];
 $update=$_POST["update"];
 $add=$_POST["add"];
-
+$testCentre=$_POST["testCentre"];
+$currentDateTime= date('Y-m-d');
 
 $sql2="UPDATE testkit
-SET stock = '$testKitStock'
-WHERE id = '$ID';";
+SET stock = (stock +'$testKitStock')
+WHERE name = '$testKit_Name';";
+
+$sql4="UPDATE testkit
+SET updatedOn = '$currentDateTime'
+WHERE name = '$testKit_Name'";
 
 $sql3="SELECT * FROM user WHERE username = '{$_SESSION["findUser"]}' ";
 
@@ -22,10 +27,10 @@ $sql3="SELECT * FROM user WHERE username = '{$_SESSION["findUser"]}' ";
                                 while ($row = $result->fetch_assoc()) {
                                 $user=$row['name'];}
 
-$sql="insert into testkit(name, stock, officerName)
-values('$testKitName','$testKitStock','$user');";
+$sql="insert into testkit(name, stock, officerName,testCentre)
+values('$testKitName','$testKitStock','$user','$testCentre');";
 
-
+$qry4 = mysqli_query($conn, $sql4);
 
 if ($update){
 $qry2 = mysqli_query($conn, $sql2);
@@ -42,7 +47,7 @@ if ($qry2) {
 
 if ($add){
 $qry = mysqli_query($conn, $sql);
-if ($qry) {
+if ($qry ) {
 	 echo '<script>';
             echo 'alert(" Added Successfully ")';
             echo '</script>';

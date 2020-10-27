@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2020 at 01:36 PM
+-- Generation Time: Oct 27, 2020 at 08:37 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -39,6 +39,13 @@ CREATE TABLE `covidtest` (
   `symptoms` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `covidtest`
+--
+
+INSERT INTO `covidtest` (`id`, `testdate`, `results`, `resultDate`, `status`, `patientName`, `officerName`, `patientType`, `symptoms`) VALUES
+(1, '2020-10-21', '', '0000-00-00', 'pending', 'sam', 'mike', 'Suspected', 'headache');
+
 -- --------------------------------------------------------
 
 --
@@ -48,8 +55,17 @@ CREATE TABLE `covidtest` (
 CREATE TABLE `testcentre` (
   `id` int(11) NOT NULL,
   `centreName` varchar(30) NOT NULL,
-  `centreOfficer` varchar(50) NOT NULL
+  `centreOfficer` varchar(50) NOT NULL,
+  `tester` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `testcentre`
+--
+
+INSERT INTO `testcentre` (`id`, `centreName`, `centreOfficer`, `tester`) VALUES
+(1, 'Kl centre', 'John Smith', ''),
+(3, 'malawi', 'John Smith', 'mike');
 
 -- --------------------------------------------------------
 
@@ -61,8 +77,23 @@ CREATE TABLE `testkit` (
   `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
   `stock` int(11) NOT NULL,
-  `officerName` varchar(30) NOT NULL
+  `officerName` varchar(30) NOT NULL,
+  `testCentre` varchar(30) NOT NULL,
+  `addOn` date NOT NULL DEFAULT current_timestamp(),
+  `updatedOn` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `testkit`
+--
+
+INSERT INTO `testkit` (`id`, `name`, `stock`, `officerName`, `testCentre`, `addOn`, `updatedOn`) VALUES
+(3, 'll', 9, 'John Smith', 'Kl centre', '2020-10-26', '2020-10-26'),
+(4, 'ersfd', 100, 'John Smith', 'malawi', '2020-10-26', '0000-00-00'),
+(5, 'll', 2, 'John Smith', 'malawi', '2020-10-26', '0000-00-00'),
+(6, 'nose', 4, 'John Smith', 'malawi', '2020-10-26', '0000-00-00'),
+(7, 'nose', 4, 'John Smith', 'malawi', '2020-10-26', '0000-00-00'),
+(8, 'fdsf', 571, 'John Smith', 'malawi', '2020-10-26', '2020-10-26');
 
 -- --------------------------------------------------------
 
@@ -85,7 +116,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `userType`, `name`, `position`, `passport`) VALUES
-(1, 'admin', 'admin', 'manager', 'John ', '', '');
+(1, 'admin', 'admin', 'manager', 'John Smith', 'manager', ''),
+(2, 'mike1', '123', 'officer', 'mike', 'Tester', ''),
+(3, 'peter1', '541', 'officer', 'peter', 'Tester', ''),
+(4, 'sam1', '123', 'patient', 'sam', '', '123abc'),
+(5, 'fff', 'fff', 'officer', 'kate', 'Tester', 'mawe134');
 
 --
 -- Indexes for dumped tables
@@ -123,25 +158,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `covidtest`
 --
 ALTER TABLE `covidtest`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `testcentre`
 --
 ALTER TABLE `testcentre`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `testkit`
 --
 ALTER TABLE `testkit`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

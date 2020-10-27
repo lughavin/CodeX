@@ -4,6 +4,7 @@ include "./db.php";
 
 session_start();
 $name =$_POST["testCentre"];
+$tester =$_POST["tester"];
 
 $sql="SELECT * FROM user WHERE username = '{$_SESSION["findUser"]}' ";
 
@@ -12,8 +13,8 @@ $sql="SELECT * FROM user WHERE username = '{$_SESSION["findUser"]}' ";
     while ($row = $result->fetch_assoc()) {
     $user=$row['name'];}
 
-        $sql2 = "INSERT INTO testcentre (centreName, centreOfficer)
-        VALUES ('$name','$user');";
+        $sql2 = "INSERT INTO testcentre (centreName, centreOfficer,tester)
+        VALUES ('$name','$user','$tester');";
 
 
 $qry2 = mysqli_query($conn, $sql2);

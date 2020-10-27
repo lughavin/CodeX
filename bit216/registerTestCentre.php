@@ -99,6 +99,27 @@ session_start();
                                 <input type="text" class="form-control" id="testCentre" name="testCentre"
                                        placeholder="Test Centre Name" required/>
                                 <br>
+
+                                <select name="tester" class="form-control">
+                                    <option>
+
+                                        <?php
+                                         include "./db.php";
+
+                                            $sql="SELECT * from user WHERE position = 'Tester' ";
+                                            $result1 = $conn-> query($sql);
+
+                                            if ($result1) {
+                                              while ($row1= mysqli_fetch_array($result1)) {
+                                                $new=$row1["name"];
+                                                echo " Select Tester <br> <option>$new<br></option> ";
+                                              }
+                                            }
+                                              $conn ->close();
+
+                                         ?>
+                                     </option>
+                                         </select><br>
                                 <button type="submit" id="register" name="register" class="button button-a button-big button-rouded"><b>Register</b></button>
                             </form>
                         </div>

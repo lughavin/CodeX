@@ -92,6 +92,10 @@ session_start();
                                 <input type="text" class="form-control" id=name name="name"
                                        placeholder="Tester's Name" required/>
                                 <br>
+                                <h4 style="color:white;"> &nbsp;Tester's ID:</h4><br>
+                                <input type="text" class="form-control" id=id name="id"
+                                       placeholder="Tester's ID" required/>
+                                <br>
 
                                 <button type="submit" id="register" name="register"
                                         class="button button-a button-big button-rouded"><b>Register</b></button>
@@ -121,21 +125,7 @@ session_start();
 
 <!-- Template Main Javascript File -->
 <script src="js/main.js"></script>
-<!-- JavaScript Confirm-->
-<script type="text/javascript">
-    function fnConfirm() {
-        var objAddress = document.getElementById("address");
 
-        if (objAddress.value == "") {
-            alert("Enter Test Centre Name..!!");
-            objMonthlyRequired.focus();
-            return false;
-        } else {
-            alert("Succeed to set up New Residence")
-        }
-
-    }
-</script>
 
 <footer id="main-footer">
     <div class="row">

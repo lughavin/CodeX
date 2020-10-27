@@ -95,6 +95,26 @@ session_start();
                             <input type="number" class="form-control" id=testKitStock name="testKitStock"
                                    required/>
                             <br>
+                            <select name="testCentre" class="form-control">
+                                <option>
+
+                                    <?php
+                                     include "./db.php";
+
+                                        $sql="SELECT * from testcentre  ";
+                                        $result1 = $conn-> query($sql);
+
+                                        if ($result1) {
+                                          while ($row1= mysqli_fetch_array($result1)) {
+                                            $new=$row1["centreName"];
+                                            echo " Select Test Centre <br> <option>$new<br></option> ";
+                                          }
+                                        }
+                                          $conn ->close();
+
+                                     ?>
+                                 </option>
+                           </select><br>
                         <button type="submit" id="add" name="add" value="add" class="button button-a button-big button-rouded"><b>Add</b></button>
                         </form>
                         </p>
@@ -109,7 +129,7 @@ session_start();
                         <p class="card-text">
                         <form method="POST" action="CodeManage.php">
                             <h4 style="color:black;"> &nbsp;Test Kit ID:</h4><br>
-                            <select name="testKitID" class="form-control">
+                            <select name="testKit_Name" class="form-control">
                             <option>
 
                                 <?php
@@ -129,8 +149,8 @@ session_start();
 
                                     if ($result1) {
                                       while ($row1= mysqli_fetch_array($result1)) {
-                                        $new=$row1["id"];
-                                        echo " TestKit ID <br> <option>$new<br></option> ";
+                                        $new=$row1["name"];
+                                        echo " TestKit Name <br> <option>$new<br></option> ";
                                       }
                                     }
                                       $conn ->close();
@@ -146,10 +166,52 @@ session_start();
                         <button type="submit" name="update" id="update" value="update" class="button button-a button-big button-rouded"><b>Update</b></button>
                         </form>
                         </p>
+
+
+
                     </div>
                 </div>
             </div>
+
+
         </div>
+        <br>
+         <h4 style="color:white;"> &nbsp;Test Kit Stock Collection</h4>
+        <table class="table">
+            <tr class="thead-dark">
+                <th>Test Kit ID</th>
+                <th>Test Name</th>
+                <th>Stock</th>
+                <th>Officer Name</th>
+                <th>Test Centre</th>
+                <th>Added On</th>
+                <th>Updated ON</th>
+            </tr>
+
+            <?php
+
+              include "./db.php";
+
+                      $sql="SELECT * FROM testkit";
+                      $result = $conn-> query($sql);
+
+                      if ($result-> num_rows > 0) {
+                        while ($row = $result-> fetch_assoc()) {
+                          echo "<tr><td>". $row["id"]."</td><td>".$row["name"]."</td><td>".$row["stock"]."</td><td>"
+                          .$row["officerName"]."</td><td>".$row["testCentre"]."</td><td>".$row["addOn"]."</td><td>"
+                          .$row["updatedOn"]."</td></tr>";
+                          # code...
+                        }
+                        echo "</table>";
+                        # code...
+                      }
+                    else{
+                      echo "No Test Kits found";
+                    }
+
+                    ?>
+        </table>
+        <br>
 
     </div>
 </div>
