@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 27, 2020 at 08:37 AM
+-- Generation Time: Oct 30, 2020 at 03:40 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -36,15 +36,17 @@ CREATE TABLE `covidtest` (
   `patientName` varchar(30) NOT NULL,
   `officerName` varchar(30) NOT NULL,
   `patientType` varchar(30) NOT NULL,
-  `symptoms` varchar(1000) NOT NULL
+  `symptoms` varchar(1000) NOT NULL,
+  `testCentre` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `covidtest`
 --
 
-INSERT INTO `covidtest` (`id`, `testdate`, `results`, `resultDate`, `status`, `patientName`, `officerName`, `patientType`, `symptoms`) VALUES
-(1, '2020-10-21', '', '0000-00-00', 'pending', 'sam', 'mike', 'Suspected', 'headache');
+INSERT INTO `covidtest` (`id`, `testdate`, `results`, `resultDate`, `status`, `patientName`, `officerName`, `patientType`, `symptoms`, `testCentre`) VALUES
+(1, '2020-10-21', '', '0000-00-00', 'pending', 'sam', 'mike', 'Suspected', 'headache', 'malawi'),
+(2, '2020-10-30', '', '0000-00-00', 'pending', 'fred', 'mike', 'Close Contact', 'fsdf haha', 'kl centre');
 
 -- --------------------------------------------------------
 
@@ -116,11 +118,12 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `userType`, `name`, `position`, `passport`) VALUES
-(1, 'admin', 'admin', 'manager', 'John Smith', 'manager', ''),
-(2, 'mike1', '123', 'officer', 'mike', 'Tester', ''),
+(1, 'manager', 'manager', 'manager', 'John Smith', 'manager', ''),
+(2, 'officer', 'officer', 'officer', 'mike', 'officer', ''),
 (3, 'peter1', '541', 'officer', 'peter', 'Tester', ''),
 (4, 'sam1', '123', 'patient', 'sam', '', '123abc'),
-(5, 'fff', 'fff', 'officer', 'kate', 'Tester', 'mawe134');
+(5, 'fff', 'fff', 'officer', 'kate', 'Tester', 'mawe134'),
+(6, 'fred123', '123', 'patient', 'fred', '', 'vsdfsdg');
 
 --
 -- Indexes for dumped tables
@@ -158,7 +161,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `covidtest`
 --
 ALTER TABLE `covidtest`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `testcentre`
@@ -176,7 +179,7 @@ ALTER TABLE `testkit`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

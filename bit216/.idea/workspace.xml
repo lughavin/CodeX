@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c0ac2918-4a42-453b-9ae2-aa5ec182975a" name="Default Changelist" comment="" />
+    <list default="true" id="6f61de8b-b200-4942-9700-225dea5c5b54" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectId" id="1iYKfLzz8zwmso8C0UHsQ8RTHIr" />
+  <component name="ProjectId" id="1jbASUieVtNVXipkxp8RdUnIstE" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -15,8 +15,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/andriod project/Welcome-Login-Signup-Page-Flutter-master" />
-    <property name="settings.editor.selected.configurable" value="aws" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -27,55 +26,17 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c0ac2918-4a42-453b-9ae2-aa5ec182975a" name="Default Changelist" comment="" />
-      <created>1602079189792</created>
+      <changelist id="6f61de8b-b200-4942-9700-225dea5c5b54" name="Default Changelist" comment="" />
+      <created>1604062418588</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1602079189792</updated>
-      <workItem from="1602079191106" duration="391000" />
-      <workItem from="1602079596640" duration="10035000" />
-      <workItem from="1602090921819" duration="201000" />
-      <workItem from="1602092349502" duration="54000" />
-      <workItem from="1602134545381" duration="5962000" />
-      <workItem from="1602160923302" duration="8385000" />
-      <workItem from="1602169648609" duration="49000" />
-      <workItem from="1602234049387" duration="840000" />
-      <workItem from="1602321655226" duration="87000" />
-      <workItem from="1602321905655" duration="245000" />
-      <workItem from="1602512391905" duration="7851000" />
-      <workItem from="1602828554463" duration="860000" />
-      <workItem from="1602838441339" duration="599000" />
-      <workItem from="1602906333015" duration="41000" />
-      <workItem from="1602929119551" duration="4887000" />
-      <workItem from="1602934659041" duration="174000" />
-      <workItem from="1603010141487" duration="66000" />
-      <workItem from="1603011966777" duration="1749000" />
-      <workItem from="1603017612664" duration="3084000" />
-      <workItem from="1603036130050" duration="1144000" />
-      <workItem from="1603209866112" duration="120000" />
-      <workItem from="1603702352353" duration="6334000" />
+      <updated>1604062418588</updated>
+      <workItem from="1604062420218" duration="89000" />
+      <workItem from="1604062586570" duration="6110000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1603210668312">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603210668312" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1603210612050">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603210612050" />
-    <state x="279" y="153" width="730" height="854" key="dock-window-1" timestamp="1602145988178">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="279" y="153" width="730" height="854" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1602145988178" />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>

@@ -1,7 +1,8 @@
 <?php
   include "./db.php";
   session_start();
-
+  error_reporting(0);
+  ini_set('display_errors', 0);
   $username = $_POST['username'];
   $password = $_POST['password'];
 
@@ -19,14 +20,15 @@ $_SESSION['findUser']=$username;
 
 
 
-  if ($num==1 && $row['userType'] === 'officer') {
+  if ($num==1 && $row['position'] === 'Tester') {
   header("Location: /bit216/testerInterface.php");
-
   } else if ($row['userType'] === 'patient') {
     header("Location: /bit216/viewTestingHistory.php");
   }else if ($row['userType'] === 'manager') {
        header("Location: /bit216/managerInterface.php");
-     }
+  }else if ($row['position'] === 'officer') {
+           header("Location: /bit216/testReport.php");
+           }
   else {
     echo "<script>
     alert('Username or Password Incorect');
