@@ -10,10 +10,12 @@ $patientType=$_POST["patientType"];
 $userType="patient";
 $symptoms=$_POST["symptoms"];
 $passport=$_POST["passport"];
+$email=$_POST["email"];
+$testcentre=$_POST["testcentre"];
 
 
-$sql="insert into user(name, username, password, userType, passport)
-values('$name','$username','$password','$userType','$passport');";
+$sql="insert into user(name, username, password, userType, passport,email)
+values('$name','$username','$password','$userType','$passport','$email');";
 
 $sql3="SELECT * FROM user WHERE username = '{$_SESSION["findUser"]}' ";
 
@@ -23,8 +25,8 @@ $sql3="SELECT * FROM user WHERE username = '{$_SESSION["findUser"]}' ";
         $user=$row['name'];}
 
 
-$sql2="insert into covidtest(patientName, officerName, patientType, symptoms)
-values('$name','$user','$patientType','$symptoms');";
+$sql2="insert into covidtest(patientName, officerName, patientType, symptoms, testcentre, patientID)
+values('$name','$user','$patientType','$symptoms','$testcentre','$passport');";
 
 $qry = mysqli_query($conn, $sql);
 $qry2 = mysqli_query($conn, $sql2);
