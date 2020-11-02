@@ -1,5 +1,43 @@
 <?php
 session_start();
+
+if(isset($_POST['submit'])) {
+            require 'PHPMailerAutoload.php';
+            require 'credential.php';
+
+            $mail = new PHPMailer;
+
+            //$mail->SMTPDebug = 4;                               // Enable verbose debug output
+
+            $mail->isSMTP();                                      // Set mailer to use SMTP
+            $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+            $mail->SMTPAuth = true;                               // Enable SMTP authentication
+            $mail->Username = EMAIL;                 // SMTP username
+            $mail->Password = PASS;                           // SMTP password
+            $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+            $mail->Port = 587;                                    // TCP port to connect to
+
+            $mail->setFrom(EMAIL, 'CodeX Team');
+            $mail->addAddress($_POST['email']);     // Add a recipient
+
+            $mail->addReplyTo(EMAIL);
+            // print_r($_FILES['file']); exit;
+            for ($i=0; $i < count($_FILES['file']['tmp_name']) ; $i++) { 
+                $mail->addAttachment($_FILES['file']['tmp_name'][$i], $_FILES['file']['name'][$i]);    // Optional name
+            }
+            $mail->isHTML(true);                                  // Set email format to HTML
+
+            $mail->Subject = $_POST['subject'];
+            $mail->Body    = $_POST['message'];
+            $mail->AltBody = $_POST['message'];
+
+            if(!$mail->send()) {
+                echo 'Message could not be sent.';
+                echo 'Mailer Error: ' . $mail->ErrorInfo;
+            } else {
+                echo 'Message has been sent';
+            }
+        }
 ?>
 
 <!DOCTYPE html>
@@ -45,15 +83,11 @@ session_start();
         </button>
         <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
             <ul class="navbar-nav">
-                
                 <li class="nav-item">
                     <a class="nav-link active" href="index.html">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="updateTestResults.php"> Update Results</a>
-                </li>
 
-                <a class="nav-link" href="testerInterface.php"><span class="sr-only"></span>Back</a>
+                <a class="nav-link" href="updateTest.php"><span class="sr-only"></span>Back</a>
                 </li>
 
             </ul>
@@ -76,7 +110,7 @@ session_start();
                         <br>  
 
                         <h5 style="color:white;" class="title-left">
-                                    Update the patient details:</h5>
+                                    Enter the patient details:</h5>
                                     <br>
 
                         
@@ -121,23 +155,26 @@ session_start();
                             <form method="POST" action="CodeUpdateTest.php">
 
                                 <h4 style="color:white;"> &nbsp; Patient ID:</h4>
-                                <input type="text" class="form-control" id="id" name="id" required/><br>
+                                <input type="text" class="form-control" id="patientID" name="patientID" required/><br>
+
+                                <h4 style="color:white;"> &nbsp; Test ID:</h4>
+                                <input type="text" class="form-control" id="testID" name="testID" required/><br>
 
 
-                                <div class="form-group">
-                                    <h4 style="color:white;"> &nbsp;Patient Type:</h4>
-                                    <select class="form-control" id="patientType" name="patientType">
-                                        <option value="Returnee">Returnee</option>
-                                        <option value="Quarantined">Quarantined</option>
-                                        <option value="Close Contact">Close Contact</option>
-                                        <option value="Infected">Infected</option>
-                                        <option value="Suspected">Suspected</option>
-                                    </select>
-                                </div>
-                                <br>
-                                <h4 style="color:white;"> &nbsp;Symptoms:</h4>
-                                <input type="text" class="form-control" id="symptoms" name="symptoms"
-                                       placeholder="Redness in the eyes, Running Nose , etc" required/>
+                                <h5 style="color:white;"> &nbsp;Email:</h5>
+                                <input type="Email" class="form-control" id="email" name="email"
+                                       placeholder="exampleuser@gmail.com" required/><br>
+
+
+
+                                <h5 style="color:white;"> &nbsp;Subject:</h5>
+                                <input type="text" class="form-control" id="subject" name="subject"
+                                       placeholder="CodeX Test Results!" required/><br>
+
+
+                                <h5 style="color:white; height:300;"> &nbsp;Message</h5>
+                                <textarea style=" height:600; resize: none;" type="text" class="form-control" id="message" name="message" 
+                                        required > </textarea>
 
 
                                 <br>

@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -85,15 +86,15 @@ session_start();
                                 <br>
                                 <h4 style="color:white;"> &nbsp;Username:</h4>
                                 <input type="text" class="form-control" id="username" name="username" required/><br>
-                                <br>
+                                
                                 <h4 style="color:white;"> &nbsp;Password:</h4>
                                 <input type="password" class="form-control" id="password" name="password"
                                        required/><br>
-                                <br>
+                                
                                 <h4 style="color:white;"> &nbsp;Email:</h4>
                                 <input type="email" class="form-control" id="email" name="email" required/><br>
-                                <br>
-                                 <h4 style="color:white;"> &nbsp;ID:</h4><br>
+                            
+                                 <h4 style="color:white;"> &nbsp;ID:</h4>
                                 <input type="text" class="form-control" id="passport" name="passport"
                                        placeholder="ID Number" required/>
                                 <br>
@@ -138,7 +139,7 @@ session_start();
                                                 if ($result1) {
                                                   while ($row1= mysqli_fetch_array($result1)) {
                                                     $new=$row1["centreName"];
-                                                    echo " Select Test Centre <br> <option>$new<br></option> ";
+                                                    echo " <option>$new<br></option> ";
                                                   }
                                                 }
                                                   $conn ->close();
