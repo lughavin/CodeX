@@ -61,16 +61,50 @@ session_start();
 
 <div id="home" class="intro2 route bg-image" style="background-image: url(img/dna.jpg)">
 
-
     <div class="overlay-itro"></div>
     <div class="container">
-        <div class="row">
-            <div class="col-1"></div>
-                <div class="col-10">
 
-                <blockquote class="blockquote text-center">
-                    <b style="font-size:500%; text-align: center; visibility: hidden">Manage Test Kit Stock</b>
-                </blockquote>
+        <div class="row">
+
+            <div class="col-1"></div>
+
+                <div class="col-10">
+                <br>  <br>  <br>  <br>
+                <h4 style="color:white;"> &nbsp;Test Kit Stock Collection</h4>
+                        <table class="table">
+                            <tr class="thead-dark">
+                                <th>Test Kit ID</th>
+                                <th>Test Name</th>
+                                <th>Stock</th>
+                                <th>Officer Name</th>
+                                <th>Test Centre</th>
+                                <th>Added On</th>
+                                <th>Updated ON</th>
+                            </tr>
+
+                            <?php
+
+                              include "./db.php";
+
+                                      $sql="SELECT * FROM testkit";
+                                      $result = $conn-> query($sql);
+
+                                      if ($result-> num_rows > 0) {
+                                        while ($row = $result-> fetch_assoc()) {
+                                          echo "<tr><td>". $row["id"]."</td><td>".$row["name"]."</td><td>".$row["stock"]."</td><td>"
+                                          .$row["officerName"]."</td><td>".$row["testCentre"]."</td><td>".$row["addOn"]."</td><td>"
+                                          .$row["updatedOn"]."</td></tr>";
+                                          # code...
+                                        }
+                                        echo "</table>";
+                                        # code...
+                                      }
+                                    else{
+                                      echo "No Test Kits found";
+                                    }
+
+                                    ?>
+                        </table>
             </div>
         </div>
     </div>
@@ -176,42 +210,7 @@ session_start();
 
         </div>
         <br>
-         <h4 style="color:white;"> &nbsp;Test Kit Stock Collection</h4>
-        <table class="table">
-            <tr class="thead-dark">
-                <th>Test Kit ID</th>
-                <th>Test Name</th>
-                <th>Stock</th>
-                <th>Officer Name</th>
-                <th>Test Centre</th>
-                <th>Added On</th>
-                <th>Updated ON</th>
-            </tr>
 
-            <?php
-
-              include "./db.php";
-
-                      $sql="SELECT * FROM testkit";
-                      $result = $conn-> query($sql);
-
-                      if ($result-> num_rows > 0) {
-                        while ($row = $result-> fetch_assoc()) {
-                          echo "<tr><td>". $row["id"]."</td><td>".$row["name"]."</td><td>".$row["stock"]."</td><td>"
-                          .$row["officerName"]."</td><td>".$row["testCentre"]."</td><td>".$row["addOn"]."</td><td>"
-                          .$row["updatedOn"]."</td></tr>";
-                          # code...
-                        }
-                        echo "</table>";
-                        # code...
-                      }
-                    else{
-                      echo "No Test Kits found";
-                    }
-
-                    ?>
-        </table>
-        <br>
 
     </div>
 </div>
