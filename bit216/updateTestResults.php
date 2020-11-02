@@ -1,43 +1,7 @@
 <?php
 session_start();
 
-if(isset($_POST['submit'])) {
-            require 'PHPMailerAutoload.php';
-            require 'credential.php';
 
-            $mail = new PHPMailer;
-
-            //$mail->SMTPDebug = 4;                               // Enable verbose debug output
-
-            $mail->isSMTP();                                      // Set mailer to use SMTP
-            $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-            $mail->SMTPAuth = true;                               // Enable SMTP authentication
-            $mail->Username = EMAIL;                 // SMTP username
-            $mail->Password = PASS;                           // SMTP password
-            $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-            $mail->Port = 587;                                    // TCP port to connect to
-
-            $mail->setFrom(EMAIL, 'CodeX Team');
-            $mail->addAddress($_POST['email']);     // Add a recipient
-
-            $mail->addReplyTo(EMAIL);
-            // print_r($_FILES['file']); exit;
-            for ($i=0; $i < count($_FILES['file']['tmp_name']) ; $i++) { 
-                $mail->addAttachment($_FILES['file']['tmp_name'][$i], $_FILES['file']['name'][$i]);    // Optional name
-            }
-            $mail->isHTML(true);                                  // Set email format to HTML
-
-            $mail->Subject = $_POST['subject'];
-            $mail->Body    = $_POST['message'];
-            $mail->AltBody = $_POST['message'];
-
-            if(!$mail->send()) {
-                echo 'Message could not be sent.';
-                echo 'Mailer Error: ' . $mail->ErrorInfo;
-            } else {
-                echo 'Message has been sent';
-            }
-        }
 ?>
 
 <!DOCTYPE html>
@@ -152,40 +116,126 @@ if(isset($_POST['submit'])) {
                             <div class="title-box-2">
                                 
                             </div>
-                            <form method="POST" action="CodeUpdateTest.php">
 
+
+                            <form method ="POST" action ="">
                                 <h4 style="color:white;"> &nbsp; Patient ID:</h4>
-                                <input type="text" class="form-control" id="patientID" name="patientID" required/><br>
+                                <input type="text" class="form-control" id="patientID" name="patientID" /><br>
 
-                                <h4 style="color:white;"> &nbsp; Test ID:</h4>
-                                <input type="text" class="form-control" id="testID" name="testID" required/><br>
+                                 <button type="submit" name="search" onclick=fnConfirm() id="search"
+                                        class="button button-a button-big button-rouded">Search
+                                </button><br>
 
+                                 <?php
+                                     include "./db.php";
 
-                                <h5 style="color:white;"> &nbsp;Email:</h5>
-                                <input type="Email" class="form-control" id="email" name="email"
-                                       placeholder="exampleuser@gmail.com" required/><br>
+                                      $patientID = $_POST["patientID"];
 
-
-
-                                <h5 style="color:white;"> &nbsp;Subject:</h5>
-                                <input type="text" class="form-control" id="subject" name="subject"
-                                       placeholder="CodeX Test Results!" required/><br>
+                                      $sql5="SELECT * FROM covidtest WHERE patientID = '$patientID' ";
+                                      $resultFind = mysqli_query($conn, $sql5);
 
 
-                                <h5 style="color:white; height:300;"> &nbsp;Message</h5>
-                                <textarea style=" height:600; resize: none;" type="text" class="form-control" id="message" name="message" 
-                                        required > </textarea>
+                                          if ($resultFind){
+                                          while ($row1= mysqli_fetch_array($resultFind)){
+                                            $email=$row1["patientEmail"];
+                                             $TestId=$row1["id"];
+
+                                               echo "<br><b>The Patient Email is: <a href=''>".$email."<a></b> <br> <br>" ;
 
 
-                                <br>
-                                <button type="submit" name="submit" onclick=fnConfirm() id="submit"
-                                        class="button button-a button-big button-rouded">Submit
-                                </button>
 
-                                <button type="reset" value="Reset" class="button button-a button-big button-rouded">
-                                    Reset
-                                </button>
-                            </form>
+                                               ?>
+
+                                               <select name="testID" id="testID" class="form-control">
+                                                  <option>
+
+                                                      <?php
+                                                       include "./db.php";
+
+                                                        echo " Select Test ID <br> <option>$TestId<br></option> ";
+
+
+
+                                                       ?>
+                                                       </option>
+                                                       </select><br>
+                                                       <?php
+
+
+                                               }
+
+                                           }
+
+                                           ?>
+
+                                            <h5 style="color:white;"> &nbsp;Subject:</h5>
+                                           <input type="text" class="form-control" id="subject" name="subject"
+                                                  placeholder="CodeX Test Results!" /><br>
+
+
+                                           <h5 style="color:white; height:300;"> &nbsp;Message</h5>
+                                           <textarea style=" height:600; resize: none;" type="text" class="form-control" id="message" name="message"
+                                                    > </textarea>
+
+
+                                           <br>
+                                           <button type="submit" name="submit" onclick=fnConfirm()  id="submit"
+                                                   class="button button-a button-big button-rouded">Submit
+                                           </button>
+
+                                           <button type="reset" value="Reset" class="button button-a button-big button-rouded">
+                                               Reset
+                                           </button>
+
+                                           <?php
+                                           $status ="Completed";
+                                           $testID=$_POST['testID'];
+
+
+                                           $sqlUp="UPDATE covidtest
+                                           SET status = '$status'
+                                           WHERE id = '$testID';";
+
+
+                                            if(isset($_POST['submit'])) {
+                                                 require 'PHPMailerAutoload.php';
+                                                 require 'credential.php';
+
+                                                 $mail = new PHPMailer;
+
+                                                 //$mail->SMTPDebug = 4;                               // Enable verbose debug output
+
+                                                 $mail->isSMTP();                                      // Set mailer to use SMTP
+                                                 $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+                                                 $mail->SMTPAuth = true;                               // Enable SMTP authentication
+                                                 $mail->Username = EMAIL;                 // SMTP username
+                                                 $mail->Password = PASS;                           // SMTP password
+                                                 $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+                                                 $mail->Port = 587;                                    // TCP port to connect to
+
+                                                 $mail->setFrom(EMAIL, 'CodeX Team');
+                                                 $mail->addAddress($email);     // Add a recipient
+
+                                                 $mail->addReplyTo(EMAIL);
+                                                 // print_r($_FILES['file']); exit;
+
+                                                 $mail->isHTML(true);                                  // Set email format to HTML
+
+                                                 $mail->Subject = $_POST['subject'];
+                                                 $mail->Body    = $_POST['message'];
+                                                 $mail->AltBody = $_POST['message'];
+
+                                                $mail->send();
+                                             }
+                                             $qryUp = mysqli_query($conn, $sqlUp);
+
+
+
+
+                                           ?>
+
+                           </form>
+
                         </div>
                     </div>
                 </div>

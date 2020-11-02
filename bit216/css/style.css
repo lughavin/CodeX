@@ -34,6 +34,11 @@ a:hover {
   transition: all 0.5s ease-in-out;
 }
 
+textarea {
+    width: 300px;
+    height: 300px;
+}
+
 .p-r {
   position: relative;
 }
@@ -145,6 +150,12 @@ a:hover {
 
 .title-box {
   margin-bottom: 4rem;
+}
+
+#largeInput
+{
+    height:200px;
+    font-size:14pt;
 }
 
 .title-a {
@@ -1193,6 +1204,8 @@ a:hover {
 .widget-tags ul li a {
   color: #fff;
 }
+
+
 
 /*======================================
 //--//-->   CONTACT

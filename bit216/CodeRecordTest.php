@@ -25,8 +25,8 @@ $sql3="SELECT * FROM user WHERE username = '{$_SESSION["findUser"]}' ";
         $user=$row['name'];}
 
 
-$sql2="insert into covidtest(patientName, officerName, patientType, symptoms, testcentre, patientID)
-values('$name','$user','$patientType','$symptoms','$testcentre','$passport');";
+$sql2="insert into covidtest(patientName, officerName, patientType, symptoms, testcentre, patientID, patientEmail)
+values('$name','$user','$patientType','$symptoms','$testcentre','$passport', '$email');";
 
 $qry = mysqli_query($conn, $sql);
 $qry2 = mysqli_query($conn, $sql2);
