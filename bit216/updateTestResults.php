@@ -1,6 +1,7 @@
 <?php
 session_start();
-
+error_reporting(0);
+ini_set('display_errors', 0);
 
 ?>
 
@@ -51,7 +52,7 @@ session_start();
                     <a class="nav-link active" href="index.html">Home</a>
                 </li>
 
-                <a class="nav-link" href="updateTest.php"><span class="sr-only"></span>Back</a>
+                <a class="nav-link" href="testerInterface.php"><span class="sr-only"></span>Back</a>
                 </li>
 
             </ul>
@@ -124,7 +125,7 @@ session_start();
 
                                  <button type="submit" name="search" onclick=fnConfirm() id="search"
                                         class="button button-a button-big button-rouded">Search
-                                </button><br>
+                                </button><br><br><br>
 
                                  <?php
                                      include "./db.php";
@@ -139,6 +140,8 @@ session_start();
                                           while ($row1= mysqli_fetch_array($resultFind)){
                                             $email=$row1["patientEmail"];
                                              $TestId=$row1["id"];
+
+                                             $email2 = $email;
 
                                                echo "<br><b>The Patient Email is: <a href=''>".$email."<a></b> <br> <br>" ;
 
@@ -167,6 +170,10 @@ session_start();
                                            }
 
                                            ?>
+
+                                            <h5 style="color:white;"> &nbsp;Email:</h5>
+                                           <input type="email" class="form-control" id="email2" name="email2"
+                                                  placeholder="exampleEmail@gmail.com" /><br>
 
                                             <h5 style="color:white;"> &nbsp;Subject:</h5>
                                            <input type="text" class="form-control" id="subject" name="subject"
@@ -214,7 +221,7 @@ session_start();
                                                  $mail->Port = 587;                                    // TCP port to connect to
 
                                                  $mail->setFrom(EMAIL, 'CodeX Team');
-                                                 $mail->addAddress($email);     // Add a recipient
+                                                 $mail->addAddress($_POST['email2']);     // Add a recipient
 
                                                  $mail->addReplyTo(EMAIL);
                                                  // print_r($_FILES['file']); exit;
