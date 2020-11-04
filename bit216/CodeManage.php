@@ -46,20 +46,8 @@ if ($qry2) {
 }}
 
 
-/*$qry = mysqli_query($conn, $sql);
-if ($qry ) {
-	 echo '<script>';
-            echo 'alert(" Added Successfully ")';
-            echo '</script>';
-	echo '<script> window.location.assign("../bit216/manageTestKit.php"); </script>';
 
-}
- else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}}*/
-
-
-  $usernamecheck= "SELECT `name` FROM `testkit` WHERE name='$testKitName '";
+  $usernamecheck= "SELECT `testCentre` FROM `testkit` WHERE testCentre='$testCentre '";
 
   $qry3 = mysqli_query($conn, $usernamecheck);
    $check = mysqli_fetch_assoc($qry3);
@@ -67,7 +55,7 @@ if ($add){
     if($check>=1){
 
              echo '<script>';
-             echo 'alert(" Test Kit Already Exist Try Updating Stock")';
+             echo 'alert(" Test Kit Already Exist for Test Centre, Try Updating Stock!")';
              echo '</script>';
                 echo '<script> window.location.assign("../bit216/manageTestKit.php"); </script>';
          }else{
