@@ -197,11 +197,14 @@ ini_set('display_errors', 0);
                                            <?php
                                            $status ="Completed";
                                            $testID=$_POST['testID'];
+                                           $currentDateTime= date('Y-m-d');
 
 
                                            $sqlUp="UPDATE covidtest
-                                           SET status = '$status'
+                                           SET status = '$status', resultDate = '$currentDateTime'
                                            WHERE id = '$testID';";
+
+
 
 
                                             if(isset($_POST['submit'])) {

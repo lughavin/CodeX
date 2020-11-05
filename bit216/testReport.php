@@ -87,9 +87,10 @@ session_start();
 
                                     ?>
                                 </h5>
-                                <br><br>
+                            </div>
+                        </div>
 
-      <form method="POST" action="">
+                        <form method="POST" action="">
             <h4 style="color:white;"> &nbsp;Select Centre Name:</h4><br>
 
             <select name="testCentre" class="form-control">
@@ -156,11 +157,6 @@ session_start();
                                     ?>
                         </table>
                         </form>
-                        <br>
-
-
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <br><br>

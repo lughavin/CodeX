@@ -51,6 +51,9 @@ session_start();
                 <li class="nav-item dropdown">
                     <a class="nav-link active" href="recordTester.html">Record Tester</a>
                 </li>
+                </li>
+                <a class="nav-link" href="managerInterface.php"><span class="sr-only"></span>Back</a>
+                </li>
                 <a class="nav-link" href="logout.php"><span class="sr-only"></span>Logout</a>
                 </li>
 

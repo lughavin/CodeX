@@ -29,6 +29,13 @@ session_start();
     <!-- Main Stylesheet File -->
     <link href="css/style.css" rel="stylesheet">
 
+    <script type="text/javascript"> 
+        window.history.forward(); 
+        function noBack() { 
+            window.history.forward(); 
+        } 
+    </script> 
+
 </head>
 
 <body id="page-top">
@@ -118,7 +125,7 @@ session_start();
 
                             include "./db.php";
 
-                            $sql="SELECT * FROM covidtest WHERE username = '{$_SESSION["findUser"]}";
+                            $sql="SELECT * FROM covidtest WHERE patientName = '$user'";
                             $result = $conn-> query($sql);
 
                             if ($result-> num_rows > 0) {

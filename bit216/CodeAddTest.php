@@ -1,8 +1,8 @@
 <?php 
   include "./db.php";
 session_start();
-//error_reporting(0);
-//ini_set('display_errors', 0);
+error_reporting(0);
+ini_set('display_errors', 0);
 
 
 $PpatientType=$_POST["newPType"];
@@ -28,7 +28,7 @@ if ($qry2) {
 	 echo '<script>';
             echo 'alert(" Test has been Successfully Recorded!")';
             echo '</script>';
-	//echo '<script> window.location.assign("../bit216/updateTest.php"); </script>';
+	echo '<script> window.location.assign("../bit216/updateTest.php"); </script>';
 
 
 }

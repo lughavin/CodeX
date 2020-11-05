@@ -29,6 +29,13 @@ session_start();
     <!-- Main Stylesheet File -->
     <link href="css/style.css" rel="stylesheet">
 
+    <script type="text/javascript"> 
+        window.history.forward(); 
+        function noBack() { 
+            window.history.forward(); 
+        } 
+    </script> 
+
 </head>
 
 <body id="page-top">
