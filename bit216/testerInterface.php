@@ -88,14 +88,20 @@ session_start();
                                     ?>
                                 </h5>
                                 <br><br>
-                                <img src="img/thermometer.png" style="width:35px;height:70px">
-                                <h4 style="color: white; ">Test for new patient.</h4>
-                                <a href="recordNewTest.php" class="button"> Record new test </a>
+                                <img src="img/thermometer.png" style="width:35px;height:70px"><br>
+                                <h4 style="color: white; ">Test For New Patient.</h4>
+                                <a style="background-color: grey" href="recordNewTest.php" class="button"> Record new test </a>
 
                                 <br><br>
-                                <img src="img/update.png" style="width:70px;height:70px">
-                                <h4 style="color: white; ">Update for returning patient.</h4>
-                                <a href="UpdateTest.php" class="button"> Update test result</a>
+                                <img src="img/add.png" style="width:60px;height:60px"><br>
+                                <br>
+                                <h4 style="color: white; ">Add New Test for Existing User.</h4>
+                                <a style="background-color: grey" href="UpdateTest.php" class="button"> Add New Test</a>
+
+                                <br><br>
+                                <img src="img/update.png" style="width:70px;height:70px"><br>
+                                <h4 style="color: white; ">Update Patient.</h4>
+                                <a style="background-color: grey" href="UpdateTestResults.php" class="button"> Update Test result</a>
                             </div>
                         </div>
                     </div>
