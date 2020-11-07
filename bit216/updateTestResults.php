@@ -16,8 +16,8 @@ ini_set('display_errors', 0);
     <meta content="" name="description">
 
     <!-- Favicons -->
-    <link href="img/favicon.png" rel="icon">
-    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="img/codeX.png" rel="icon">
+    <link href="img/codeX.png" rel="apple-touch-icon">
 
     <!-- Bootstrap CSS File -->
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -31,6 +31,13 @@ ini_set('display_errors', 0);
 
     <!-- Main Stylesheet File -->
     <link href="css/style.css" rel="stylesheet">
+
+    <script type="text/javascript"> 
+        window.history.forward(); 
+        function noBack() { 
+            window.history.forward(); 
+        } 
+    </script> 
 
 </head>
 
@@ -78,7 +85,7 @@ ini_set('display_errors', 0);
                                     Enter the patient details:</h5>
                                     <br>
 
-                        
+            <div style="height:400px;overflow:auto;">            
             <table class="table">
             <tr class="thead-dark">
                 <th>Test ID</th>
@@ -112,6 +119,7 @@ ini_set('display_errors', 0);
 
                     ?>
         </table>
+      </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="title-box-2">
@@ -125,7 +133,7 @@ ini_set('display_errors', 0);
 
                                  <button type="submit" name="search" onclick=fnConfirm() id="search"
                                         class="button button-a button-big button-rouded">Search
-                                </button><br><br><br>
+                                </button><br><br>
 
                                  <?php
                                      include "./db.php";
@@ -140,35 +148,24 @@ ini_set('display_errors', 0);
                                           while ($row1= mysqli_fetch_array($resultFind)){
                                             $email=$row1["patientEmail"];
                                              $TestId=$row1["id"];
-
-                                             $email2 = $email;
-
-                                               echo "<br><b>The Patient Email is: <a href=''>".$email."<a></b> <br> <br>" ;
-
-
-
+                                             
                                                ?>
 
                                                <select name="testID" id="testID" class="form-control">
                                                   <option>
 
                                                       <?php
-                                                       include "./db.php";
-
                                                         echo " Select Test ID <br> <option>$TestId<br></option> ";
-
-
-
                                                        ?>
+
+
                                                        </option>
                                                        </select><br>
                                                        <?php
-
-
                                                }
 
-                                           }
-
+                                               echo "<br><b>The Patient Email is: <a href=''>".$email."<a></b> <br> <br>" ;}
+                                           
                                            ?>
 
                                             <h5 style="color:white;"> &nbsp;Email:</h5>

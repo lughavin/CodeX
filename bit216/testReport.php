@@ -13,8 +13,8 @@ session_start();
     <meta content="" name="description">
 
     <!-- Favicons -->
-    <link href="img/favicon.png" rel="icon">
-    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="img/codeX.png" rel="icon">
+    <link href="img/codeX.png" rel="apple-touch-icon">
 
     <!-- Bootstrap CSS File -->
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -28,6 +28,13 @@ session_start();
 
     <!-- Main Stylesheet File -->
     <link href="css/style.css" rel="stylesheet">
+
+    <script type="text/javascript"> 
+        window.history.forward(); 
+        function noBack() { 
+            window.history.forward(); 
+        } 
+    </script> 
 
 </head>
 
@@ -46,7 +53,7 @@ session_start();
         <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="index.html">Home</a>
+                    <a class="nav-link active" href="officerInterface.php">Back</a>
                 </li>
 
                 <a class="nav-link" href="logout.php"><span class="sr-only"></span>Logout</a>
@@ -117,6 +124,7 @@ session_start();
             class="button button-a button-big button-rouded"><b>Check</b></button>
                <br><br>
               <h4 style="color:white;"> &nbsp;Test Reports</h4>
+              <div style="height:500px;overflow:auto;">
                         <table class="table">
                             <tr class="thead-dark">
                                 <th>Test ID</th>
@@ -156,6 +164,7 @@ session_start();
 
                                     ?>
                         </table>
+                    </div>
                         </form>
                     </div>
                 </div>

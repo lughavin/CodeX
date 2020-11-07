@@ -90,25 +90,16 @@ session_start();
                                         $result = mysqli_query($conn, $sql);
                                         // Echo session variables that were set on previous page
                                         while ($row = $result->fetch_assoc()) {
-                                        echo "<b><h2 style='color:white;' > Welcome Tester  ".$row['name']."</h2></b>"."<br>";}
+                                        echo "<b><h2 style='color:white;' > Welcome ".$row['name']."!</h2></b>"."";}
 
                                     ?>
                                 </h5>
                                 <br><br>
-                                <img src="img/thermometer.png" style="width:35px;height:70px"><br>
-                                <h4 style="color: white; ">Test For New Patient.</h4>
-                                <a style="background-color: grey" href="recordNewTest.php" class="button"> Record new test </a>
+                                <img src="img/report.png" style="width:100px;height:70px"><br>
+                                <h4 style="color: white; ">Generate Test Report.</h4>
+                                <a style="background-color: grey" href="testReport.php" class="button"> View </a>
 
-                                <br><br>
-                                <img src="img/add.png" style="width:60px;height:60px"><br>
-                                <br>
-                                <h4 style="color: white; ">Add New Test for Existing User.</h4>
-                                <a style="background-color: grey" href="UpdateTest.php" class="button"> Add New Test</a>
-
-                                <br><br>
-                                <img src="img/update.png" style="width:70px;height:70px"><br>
-                                <h4 style="color: white; ">Update Patient.</h4>
-                                <a style="background-color: grey" href="UpdateTestResults.php" class="button"> Update Test result</a>
+                                
                             </div>
                         </div>
                     </div>

@@ -13,8 +13,8 @@ session_start();
     <meta content="" name="description">
 
     <!-- Favicons -->
-    <link href="img/favicon.png" rel="icon">
-    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="img/codeX.png" rel="icon">
+    <link href="img/codeX.png" rel="apple-touch-icon">
 
     <!-- Bootstrap CSS File -->
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -28,6 +28,13 @@ session_start();
 
     <!-- Main Stylesheet File -->
     <link href="css/style.css" rel="stylesheet">
+
+    <script type="text/javascript"> 
+        window.history.forward(); 
+        function noBack() { 
+            window.history.forward(); 
+        } 
+    </script> 
 
 </head>
 
@@ -45,15 +52,11 @@ session_start();
         </button>
         <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" href="recordTester.html">Record Test Officer</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link active" href="manageTestKit.php">Manage Test Kit Stock</a>
-                </li>
-                </li>
+                
+                <li>
                 <a class="nav-link" href="managerInterface.php"><span class="sr-only"></span>Back</a>
                 </li>
+                <li>
                 <a class="nav-link" href="logout.php"><span class="sr-only"></span>Logout</a>
                 </li>
 

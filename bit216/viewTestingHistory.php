@@ -13,8 +13,8 @@ session_start();
     <meta content="" name="description">
 
     <!-- Favicons -->
-    <link href="img/favicon.png" rel="icon">
-    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="img/codeX.png" rel="icon">
+    <link href="img/codeX.png" rel="apple-touch-icon">
 
     <!-- Bootstrap CSS File -->
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -52,10 +52,12 @@ session_start();
         </button>
         <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" href="index.html">Home</a>
+                
+                <li>
+                <a class="nav-link" href="patientInterface.php"><span class="sr-only"></span>Back</a>
                 </li>
 
+                <li>
                 <a class="nav-link" href="logout.php"><span class="sr-only"></span>Logout</a>
                 </li>
 
@@ -108,7 +110,7 @@ session_start();
                         ?>
 
 
-
+                        <div style="height:300px; width:100%; overflow:auto;">
                         <table class="table">
                             <tr class="thead-dark">
                                 <th>Test ID</th>
@@ -148,6 +150,7 @@ session_start();
 
                           ?>
                       </table>
+                  </div>
 
                     </div>
                 </div>

@@ -70,8 +70,9 @@ session_start();
 
     <div class="overlay-itro"></div>
 
-
     <div class="container">
+
+
 
         <div class="row">
             <div class="col-sm-12">
@@ -90,37 +91,50 @@ session_start();
                                         $result = mysqli_query($conn, $sql);
                                         // Echo session variables that were set on previous page
                                         while ($row = $result->fetch_assoc()) {
-                                        echo "<b><h2 style='color:white;' > Welcome Tester  ".$row['name']."</h2></b>"."<br>";}
+                                        echo "<b><h2 style='color:white;' > Welcome ".$row['name']."!</h2></b>"."";}
 
                                     ?>
                                 </h5>
-                                <br><br>
-                                <img src="img/thermometer.png" style="width:35px;height:70px"><br>
-                                <h4 style="color: white; ">Test For New Patient.</h4>
-                                <a style="background-color: grey" href="recordNewTest.php" class="button"> Record new test </a>
-
-                                <br><br>
-                                <img src="img/add.png" style="width:60px;height:60px"><br>
-                                <br>
-                                <h4 style="color: white; ">Add New Test for Existing User.</h4>
-                                <a style="background-color: grey" href="UpdateTest.php" class="button"> Add New Test</a>
-
-                                <br><br>
-                                <img src="img/update.png" style="width:70px;height:70px"><br>
-                                <h4 style="color: white; ">Update Patient.</h4>
-                                <a style="background-color: grey" href="UpdateTestResults.php" class="button"> Update Test result</a>
-                            </div>
+                                
                         </div>
+                       			 <img src="img/glass.png" style="width:70px;height:70px"><br>
+                                <h4 style="color: white; ">View Testing History.</h4>
+                                <a style="background-color: grey" href="viewTestingHistory.php" class="button"> View </a>
+
+                                <br><br>
+
                     </div>
+
+
+
+                    <div class="container" style="background-color: #f5f5dc; color: black; padding: 20px; border-radius: 20px;">
+				               <h4>
+				               	Covid-19 Symptoms
+				               </h4>
+
+
+				               <a > 
+								COVID-19 symptoms are manifest usually as fevers, a dry cough and tiredness. Some infected individuals may have mild symptoms like headaches, muscle pains, runny nose, sore throat or diarrhea. Some COVID-19 patients may suffer from severe pneumonia, organ failure (e.g. kidney), acute respiratory tract infection and septic shock, which can lead to death. However, there are some infected individuals who do not develop any symptoms and do not feel unwell. These people are called asymptomatic carriers. The people who are highly vulnerable to COVID-19 are the elderly, young children, pregnant ladies, and people with chronic diseases such as hypertension, diabetes, heart problems, kidney and liver diseases, in addition to immuno-compromised people including patients with cancer, HIV, auto-immune disorders, and smokers.</a>
+							</div>
+
+							<br>
+                                
+                                
+                            </div>
+				
                 </div>
                 <br><br>
-                <h4 style="color:white;"></h4>
-
-
             </div>
         </div>
+
     </div>
+
+
+
+
 </div>
+
+
 </div>
 
 

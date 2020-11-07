@@ -1,0 +1,9 @@
+In order for send mail to work on your computer follow the following instructions.
+
+Go to C:\xampp\sendmail
+Replace "sendmail.ini" configuration file.
+
+Then go to C:\xampp\php
+Replace "php.ini" configuration file.
+
+This would allow xampp to send to gmail.

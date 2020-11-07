@@ -23,11 +23,11 @@ $_SESSION['findUser']=$username;
   if ($num==1 && $row['position'] === 'Tester') {
   header("Location: /bit216/testerInterface.php");
   } else if ($row['userType'] === 'patient') {
-    header("Location: /bit216/viewTestingHistory.php");
+    header("Location: /bit216/patientInterface.php");
   }else if ($row['userType'] === 'manager') {
        header("Location: /bit216/managerInterface.php");
   }else if ($row['position'] === 'officer') {
-           header("Location: /bit216/testReport.php");
+           header("Location: /bit216/officerInterface.php");
            }
   else {
     echo "<script>
