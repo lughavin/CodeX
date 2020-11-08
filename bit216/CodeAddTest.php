@@ -28,7 +28,7 @@ if ($qry2) {
 	 echo '<script>';
             echo 'alert(" Test has been Successfully Recorded!")';
             echo '</script>';
-	echo '<script> window.location.assign("../bit216/updateTest.php"); </script>';
+	echo '<script> window.location.assign("../bit216/addNewExistingTest.php"); </script>';
 
 
 }

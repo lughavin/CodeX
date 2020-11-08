@@ -103,7 +103,7 @@ session_start();
                                 <img src="img/add.png" style="width:60px;height:60px"><br>
                                 <br>
                                 <h4 style="color: white; ">Add New Test for Existing User.</h4>
-                                <a style="background-color: grey" href="UpdateTest.php" class="button"> Add New Test</a>
+                                <a style="background-color: grey" href="addNewExistingTest.php" class="button"> Add New Test</a>
 
                                 <br><br>
                                 <img src="img/update.png" style="width:70px;height:70px"><br>
