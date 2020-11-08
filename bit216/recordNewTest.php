@@ -86,7 +86,7 @@ session_start();
                                 </h5>
                             </div>
                             <form method="POST" action="CodeRecordTest.php">
-                                <h4 style="color:white;"> &nbsp;Name:</h4>
+                                <h4 style="color:white; text-transform: capitalize;"> &nbsp;Name:</h4>
                                 <input type="text" class="form-control" id="patientName" name="patientName"
                                        placeholder="Name" required/>
 
@@ -94,16 +94,16 @@ session_start();
                                 <h4 style="color:white;"> &nbsp;Username:</h4>
                                 <input type="text" class="form-control" id="username" name="username" required/><br>
                                 
-                                <h4 style="color:white;"> &nbsp;Password:</h4>
-                                <input type="password" class="form-control" id="password" name="password"
+                                <h4 style="color:white;" > &nbsp;Password:</h4>
+                                <input type="password" minlength="8" class="form-control" id="password" name="password"
                                        required/><br>
                                 
                                 <h4 style="color:white;"> &nbsp;Email:</h4>
                                 <input type="email" class="form-control" id="email" name="email" required/><br>
                             
-                                 <h4 style="color:white;"> &nbsp;ID:</h4>
-                                <input type="text" class="form-control" id="passport" name="passport"
-                                       placeholder="ID Number" required/>
+                                 <h4 style="color:white;"> &nbsp;IC/Passport Number:</h4>
+                                <input type="text" minlength="10" maxlength="12" class="form-control" id="passport" name="passport"
+                                       placeholder="IC Number/ Passport Number" required/>
                                 <br>
 
                                 <div class="form-group">
