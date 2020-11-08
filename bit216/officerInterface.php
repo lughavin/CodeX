@@ -52,9 +52,7 @@ session_start();
         </button>
         <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" href="index.html">Home</a>
-                </li>
+
 
                 <a class="nav-link" href="logout.php"><span class="sr-only"></span>Logout</a>
                 </li>

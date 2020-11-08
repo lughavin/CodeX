@@ -52,9 +52,7 @@ session_start();
         </button>
         <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" href="index.html">Home</a>
-                </li>
+
 
                 <a class="nav-link" href="logout.php"><span class="sr-only"></span>Logout</a>
                 </li>
@@ -109,17 +107,51 @@ session_start();
 
                     <div class="container" style="background-color: #f5f5dc; color: black; padding: 20px; border-radius: 20px;">
 				               <h4>
-				               	Covid-19 Symptoms
+				               	Covid-19 News
 				               </h4>
 
 
 				               <a > 
-								COVID-19 symptoms are manifest usually as fevers, a dry cough and tiredness. Some infected individuals may have mild symptoms like headaches, muscle pains, runny nose, sore throat or diarrhea. Some COVID-19 patients may suffer from severe pneumonia, organ failure (e.g. kidney), acute respiratory tract infection and septic shock, which can lead to death. However, there are some infected individuals who do not develop any symptoms and do not feel unwell. These people are called asymptomatic carriers. The people who are highly vulnerable to COVID-19 are the elderly, young children, pregnant ladies, and people with chronic diseases such as hypertension, diabetes, heart problems, kidney and liver diseases, in addition to immuno-compromised people including patients with cancer, HIV, auto-immune disorders, and smokers.</a>
+								COVID-19 | The Health Ministry today reported  <b>852 new Covid-19 cases</b>, breaking the previous five-day streak in which new daily infections were <b>above the 1,000 mark</b>.
+                                <br>
+                                This brings the <b>cumulative cases to 40,209, crossing the 40,000 mark for the first time</b>. Meanwhile, the <b>cumulative recoveries stand at 28,234.</b>
+                                <br>
+                                Leading indicators in brief:
+                                <br>
+                                Active cases =  11,689 ↑ (23 more than previous day) 
+                                <br>
+                                Patients in intensive care = 94 ↑ (Seven more than since yesterday) 
+                                <br>
+                                Intubated patients = 32 (Unchanged)
+                                <br>
+                                Deaths = 4 ↑ (One more than yesterday)
+                                <br>
+                                Recoveries = 825 ↓ (204 less than yesterday)
+                                <br>
+                                <b>Health Ministry director-general Dr Noor Hisham Abdullah, in a statement, said 61.5 percent of the new cases were from Sabah while 19.9 percent were from the Klang Valley.</b>
+                                <br>
+                                He also reported four deaths with two from Sabah and one from Perak and Kedah respectively. The death toll now stands at 286..</a>
+                                <br>
+
 							</div>
 
 							<br>
-                                
-                                
+                            <a> &nbsp </a>
+                            <a> &nbsp </a>
+
+
+                            <div class="container" style="background-color: #f5f5dc; color: black; padding: 20px; border-radius: 20px;">
+                               <h4>
+                                Covid-19 Symptoms
+                               </h4>
+
+
+                               <a > 
+                                COVID-19 symptoms are manifest usually as fevers, a dry cough and tiredness. Some infected individuals may have mild symptoms like headaches, muscle pains, runny nose, sore throat or diarrhea. Some COVID-19 patients may suffer from severe pneumonia, organ failure (e.g. kidney), acute respiratory tract infection and septic shock, which can lead to death. However, there are some infected individuals who do not develop any symptoms and do not feel unwell. These people are called asymptomatic carriers. The people who are highly vulnerable to COVID-19 are the elderly, young children, pregnant ladies, and people with chronic diseases such as hypertension, diabetes, heart problems, kidney and liver diseases, in addition to immuno-compromised people including patients with cancer, HIV, auto-immune disorders, and smokers.</a>
+                            </div>
+
+                            <br>
+
                             </div>
 				
                 </div>
