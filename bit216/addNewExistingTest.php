@@ -87,6 +87,9 @@
 	                        Add New Existing Test:</h5>
 	                        <br>
 
+	                        <h4 style="color: white;">Patient are required to complete a first test before taking another test!</h4>
+ 			<br>
+
 	                        <div style="height:300px;overflow:auto;">
 	                        <table class="table">
 	                            <tr class="thead-dark">

@@ -85,6 +85,10 @@ ini_set('display_errors', 0);
                                     Enter the patient details:</h5>
                                     <br>
 
+ 			<h4 style="color: white;">Patient are required to complete a first test before taking another test!</h4>
+ 			<br>
+
+
             <div style="height:400px;overflow:auto;">            
             <table class="table">
             <tr class="thead-dark">
@@ -139,8 +143,9 @@ ini_set('display_errors', 0);
                                      include "./db.php";
 
                                       $patientID = $_POST["patientID"];
+                                      $status = 'pending';
 
-                                      $sql5="SELECT * FROM covidtest WHERE patientID = '$patientID' ";
+                                      $sql5="SELECT * FROM covidtest WHERE patientID = '$patientID'AND status='$status' ";
                                       $resultFind = mysqli_query($conn, $sql5);
 
 
