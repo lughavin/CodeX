@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2020 at 03:02 PM
+-- Generation Time: Nov 09, 2020 at 12:07 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -47,11 +47,11 @@ CREATE TABLE `covidtest` (
 --
 
 INSERT INTO `covidtest` (`id`, `testdate`, `results`, `resultDate`, `status`, `patientName`, `officerName`, `patientType`, `symptoms`, `testCentre`, `patientID`, `patientEmail`) VALUES
-(9, '2020-11-02', '', '0000-00-00', 'pending', 'andrew', 'peter', 'Infected', 'red eye', 'malawi', '1234567', 'ghambi.lughano@gmail.com'),
-(10, '2020-11-02', '', '0000-00-00', 'Completed', 'lughano ghambi', 'peter', 'Infected', 'dasd', 'malawi', 'mnab3', 'ghambi.lughano@gmail.com'),
-(11, '2020-11-04', '', '0000-00-00', 'pending', 'andrew', 'peter', 'Infected', 'gggg', 'malawi', '12345', 'ghambi.lughano@gmail.com'),
-(31, '2020-11-05', '', '0000-00-00', 'pending', 'lughano ghambi', 'peter', 'Infected', 'this is a try work', 'malawi', 'mnab3', 'ghambi.lughano@gmail.com'),
-(32, '2020-11-05', '', '0000-00-00', 'pending', 'jojo', 'peter', 'Infected', 'rrrrrrrrrrrrrrrrrr', 'malawi', 'fdsf4', 'ghambi.lughano@gmail.com');
+(1, '2020-11-09', '', '2020-11-09', 'Completed', 'Peter Chong', 'Sandra Kane', 'Infected', 'high fever', 'Langkawi Centre', 'pt123456rt', 'ghambi.lughano@gmail.com'),
+(2, '2020-11-09', '', '0000-00-00', 'pending', 'Emmanuel', 'Sandra Kane', 'Suspected', 'running nose', 'Langkawi Centre', 'mw12345678', 'lughanoghambi12@gmail.com'),
+(3, '2020-11-09', '', '0000-00-00', 'pending', 'Peter Chong', 'Sandra Kane', 'Quarantined', 'red eyes', 'Langkawi Centre', 'pt123456rt', 'ghambi.lughano@gmail.com'),
+(4, '2020-11-09', '', '0000-00-00', 'pending', 'Chris Henz', 'Mike Foss', 'Close Contact', 'loss of smell', 'Kl Centre', 'kl123456789', 'lughanoghambi13@gmail.com'),
+(5, '2020-11-09', '', '0000-00-00', 'pending', 'Jane Cross', 'Mike Foss', 'Suspected', 'headaches ', 'Kl Centre', 'klj123456789', 'ghambi.lughano@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -71,9 +71,8 @@ CREATE TABLE `testcentre` (
 --
 
 INSERT INTO `testcentre` (`id`, `centreName`, `centreOfficer`, `tester`) VALUES
-(1, 'Kl centre', 'John Smith', 'mike'),
-(3, 'malawi', 'John Smith', 'peter'),
-(4, 'nilai', 'John Smith', 'kate');
+(1, 'Kl Centre', 'John Smith', 'Mike Foss'),
+(2, 'Langkawi Centre', 'John Smith', 'Sandra Kane');
 
 -- --------------------------------------------------------
 
@@ -96,10 +95,8 @@ CREATE TABLE `testkit` (
 --
 
 INSERT INTO `testkit` (`id`, `name`, `stock`, `officerName`, `testCentre`, `addOn`, `updatedOn`) VALUES
-(3, 'll', 9, 'John Smith', 'Kl centre', '2020-10-26', '2020-10-26'),
-(8, 'fdsf', 568, 'John Smith', 'malawi', '2020-10-26', '2020-10-26'),
-(10, 'tt', 66, 'John Smith', 'iuu', '2020-11-04', '2020-11-04'),
-(11, 'dvdsfsd', 45, 'John Smith', 'wef', '2020-11-04', '0000-00-00');
+(1, 'Nose', 23, 'John Smith', 'Kl Centre', '2020-11-09', '0000-00-00'),
+(2, 'mouth ', 43, 'John Smith', 'Langkawi Centre', '2020-11-09', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -123,17 +120,14 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `userType`, `name`, `position`, `passport`, `email`) VALUES
-(1, 'manager', 'manager', 'manager', 'John Smith', 'manager', '', ''),
-(2, 'officer', 'officer', 'officer', 'mike', 'officer', '', ''),
-(3, 'peter1', '123', 'officer', 'peter', 'Tester', 'ghgh', ''),
-(4, 'sam1', '123', 'patient', 'sam', '', '123abc', ''),
-(5, 'fff', 'fff', 'officer', 'kate', 'Tester', 'mawe134', ''),
-(6, 'fred123', '123', 'patient', 'fred', '', 'vsdfsdg', ''),
-(7, 'and1', '123', 'patient', 'andrew', '', 'fdsghdt533', 'sfdsfsd@gn.com'),
-(8, 'kate123', '123', 'patient', 'kate', '', 'manfda45', 'ghambi.lughano@gmail.com'),
-(9, 'kate123', '123', 'patient', 'kate', '', 'manfda45', 'ghambi.lughano@gmail.com'),
-(10, 'kate123', '123', 'patient', 'kate', '', 'xxxx', 'ghambi.lughano@gmail.com'),
-(11, 'petersfwee', 'abc', 'patient', 'dfsf', '', 'fdsfd', 'ghambi.lughano@gmail.com');
+(1, 'manager', 'manager', 'manager', 'John Smith', 'manager', 'MA234298', ''),
+(2, 'officer', 'officer', 'officer', 'Andrew Tan', 'officer', 'WR123456', ''),
+(3, 'mike', 'mike123456', 'officer', 'Mike Foss', 'Tester', '123456qwe', ''),
+(4, 'sandra', 'sandra123456', 'officer', 'Sandra Kane', 'Tester', '123456poiu', ''),
+(5, 'peter', 'peter123456', 'patient', 'Peter Chong', '', 'pt123456rt', 'ghambi.lughano@gmail.com'),
+(6, 'emma', 'emma123456', 'patient', 'Emmanuel', '', 'mw12345678', 'lughanoghambi12@gmail.com'),
+(7, 'chris', 'chris123456', 'patient', 'Chris Henz', '', 'kl123456789', 'lughanoghambi13@gmail.com'),
+(8, 'jane', 'jane123456', 'patient', 'Jane Cross', '', 'klj123456789', 'ghambi.lughano@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -171,25 +165,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `covidtest`
 --
 ALTER TABLE `covidtest`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `testcentre`
 --
 ALTER TABLE `testcentre`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `testkit`
 --
 ALTER TABLE `testkit`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -31,6 +31,7 @@
 
 	    <!-- Main Stylesheet File -->
 	    <link href="css/style.css" rel="stylesheet">
+        <link href="../../media/css/jquery.dataTables.css">
 
 	    <script type="text/javascript"> 
         window.history.forward(); 

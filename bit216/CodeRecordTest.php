@@ -35,7 +35,7 @@ $sql2="insert into covidtest(patientName, officerName, patientType, symptoms, te
 values('$name','$user','$patientType','$symptoms','$testcentre','$passport', '$email');";
 
 
-   
+
 
 
 
@@ -44,12 +44,13 @@ $usernamecheck= "SELECT 'passport' FROM `user` WHERE passport='$passport '";
 
   $qryCheck = mysqli_query($conn, $usernamecheck);
    $check = mysqli_fetch_assoc($qryCheck);
-    if($check>=1){
+
+        if($check>=1 ){
 
              echo '<script>';
-             echo 'alert(" Patient Data Already Exists!")';
+             echo 'alert(" Error Adding Patient Exists Please Try Again!")';
              echo '</script>';
-                echo '<script> window.location.assign("../bit216/updateTest.php"); </script>';
+                echo '<script> window.location.assign("../bit216/addNewExistingTest.php"); </script>';
          }else{
           $qry = mysqli_query($conn, $sql);
           $qry2 = mysqli_query($conn, $sql2);

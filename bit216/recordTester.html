@@ -36,6 +36,17 @@ session_start();
         } 
     </script> 
 
+    <script>
+        function myFunction() {
+          var x = document.getElementById("password");
+          if (x.type === "password") {
+            x.type = "text";
+          } else {
+            x.type = "password";
+          }
+        }
+        </script>
+
 </head>
 
 <body id="page-top">
@@ -86,21 +97,25 @@ session_start();
                                 </h5>
                             </div>
                             <form method="POST" action="CodeRecordOfficer.php">
-                                <h4 style="color:white;"> &nbsp;Username:</h4><br>
+                                <h4 style="color:white;"> &nbsp;Username:</h4>
                                 <input type="text" class="form-control" id=username name="username"
                                        placeholder="Username" required/>
                                 <br>
-                                <h4 style="color:white;"> &nbsp;Password:</h4><br>
-                                <input type="password" class="form-control" id=password name="password"
+                                <h4 style="color:white;"> &nbsp;Password:</h4>
+                                <input type="password" minlength="8" class="form-control" id=password name="password"
                                        required/>
+
+                                       <input type="checkbox" onclick="myFunction()">Show Password</input>
+
+                                       <br>
                                 <br>
-                                <h4 style="color:white;"> &nbsp;Tester's Name:</h4><br>
+                                <h4 style="color:white;"> &nbsp;Tester's Name:</h4>
                                 <input type="text" class="form-control" id=name name="name"
                                        placeholder="Tester's Name" required/>
                                 <br>
-                                <h4 style="color:white;"> &nbsp;Tester's ID:</h4><br>
+                                <h4 style="color:white;"> &nbsp;Tester's ID:</h4>
                                 <input type="text" class="form-control" id=id name="id"
-                                       placeholder="Tester's ID" required/>
+                                       placeholder="Tester's ID" minlength="10" maxlength="12" required/>
                                 <br>
 
                                 <button type="submit" id="register" name="register"

@@ -82,7 +82,7 @@ session_start();
                             <div class="title-box-2">
                                 <br>
                                 <h5 style="color:white;" class="title-left">
-                                    Please enter the name of the test centre you would like to register.
+                                    Register Test Centre
                                 </h5><br>
 
                                 <?php
@@ -93,16 +93,22 @@ session_start();
                                 $result = mysqli_query($conn, $sql);
                                 // Echo session variables that were set on previous page
                                 while ($row = $result->fetch_assoc()) {
-                                echo "<b><h2 style='color:white;' > Welcome ".$row['name']."</h2></b>"."<br>";}
-
-
+                                echo "<b><h2 style='color:white;' > Welcome ".$row['name']."</h2></b>";}
                                 ?>
 
                             </div>
 
+                            
+                        </div>
+
+                    </div>
+                    <h5 style="color:white;" >
+                                    Please enter the name of the test centre to register!
+                                </h5><br>
+
                             <form method="POST" action="CodeRegisterTestCentre.php">
                                 <h4 style="color:white;"> &nbsp;Test Centre Name:</h4><br>
-                                <input type="text" class="form-control" id="testCentre" name="testCentre"
+                                <input type="text" class="form-control" id="testCentre" name="testCentre" minlength="4
                                        placeholder="Test Centre Name" required/>
                                 <br>
 
@@ -128,8 +134,6 @@ session_start();
                                          </select><br>
                                 <button type="submit" id="register" name="register" class="button button-a button-big button-rouded"><b>Register</b></button>
                             </form>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

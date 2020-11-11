@@ -7,6 +7,10 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/phpmailer/composer.json</pharConfigPath>
+    <execution />
+  </component>
   <component name="ProjectId" id="1jbASUieVtNVXipkxp8RdUnIstE" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -39,6 +43,8 @@
       <workItem from="1604492459471" duration="10083000" />
       <workItem from="1604580889110" duration="2052000" />
       <workItem from="1604582999751" duration="1320000" />
+      <workItem from="1604905488307" duration="1449000" />
+      <workItem from="1605097340950" duration="8216000" />
     </task>
     <servers />
   </component>

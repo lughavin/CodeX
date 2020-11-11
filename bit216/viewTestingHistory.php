@@ -118,7 +118,8 @@ session_start();
                                 <th>Patient ID</th>
                                 <th>Test Centre</th>
                                 <th>Officer Name</th>
-                                <th>Result Status</th>
+                                <th>Test Status</th>
+                                <th>Result</th>
                                 <th>Result Date</th>
                                 <th>Test Date</th>
                             </tr>
@@ -138,6 +139,7 @@ session_start();
                                   <td>".$row["testCentre"]."</td>
                                   <td>".$row["officerName"]."</td>
                                   <td>".$row["status"]."</td>
+                                  <td>".$row["results"]."</td>
                                   <td>".$row["resultDate"]."</td>
                                   <td>".$row["testdate"]."</td><td>";
 

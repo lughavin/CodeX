@@ -37,6 +37,17 @@ session_start();
         } 
     </script> 
 
+    <script>
+        function myFunction() {
+          var x = document.getElementById("password");
+          if (x.type === "password") {
+            x.type = "text";
+          } else {
+            x.type = "password";
+          }
+        }
+        </script>
+
 </head>
 
 <body id="page-top">
@@ -96,7 +107,10 @@ session_start();
                                 
                                 <h4 style="color:white;" > &nbsp;Password:</h4>
                                 <input type="password" minlength="8" class="form-control" id="password" name="password"
-                                       required/><br>
+                                       required/>
+                                       <input type="checkbox" onclick="myFunction()">Show Password</input>
+
+                                       <br><br>
                                 
                                 <h4 style="color:white;"> &nbsp;Email:</h4>
                                 <input type="email" class="form-control" id="email" name="email" required/><br>

@@ -39,6 +39,8 @@ ini_set('display_errors', 0);
         } 
     </script> 
 
+
+
 </head>
 
 <body id="page-top">
@@ -97,7 +99,8 @@ ini_set('display_errors', 0);
                  <th>Patient ID</th>
                  <th>Test Centre</th>
                 <th>Officer Name</th>
-                <th>Result Status</th>
+                <th>Test Status</th>
+                <th>Results</th>
                 <th>Result Date</th>
                 <th>Test Date</th>
             </tr>
@@ -112,7 +115,7 @@ ini_set('display_errors', 0);
                       if ($result-> num_rows > 0) {
                         while ($row = $result-> fetch_assoc()) {
                           echo "<tr><td>". $row["id"]."</td><td>".$row["patientName"]."</td><td>".$row["patientID"]."</td><td>".$row["testCentre"]."</td><td>".$row["officerName"]."</td><td>"
-                          .$row["status"]."</td><td>".$row["resultDate"]."</td><td>".$row["testdate"]."</td><td>";
+                          .$row["status"]."</td><td>".$row["results"]."</td><td>".$row["resultDate"]."</td><td>".$row["testdate"]."</td><td>";
 
                         }
                         echo "</table>";
@@ -129,8 +132,6 @@ ini_set('display_errors', 0);
                             <div class="title-box-2">
                                 
                             </div>
-
-
                             <form method ="POST" action ="">
                                 <h4 style="color:white;"> &nbsp; Patient ID:</h4>
                                 <input type="text" class="form-control" id="patientID" name="patientID" /><br>
@@ -173,6 +174,24 @@ ini_set('display_errors', 0);
                                            
                                            ?>
 
+                                           <h5 style="color:white;"> &nbsp;Status:</h5>
+                                            <input type="radio" id="result" name="result" value="negative" checked="checked"
+                                            style="border: 0px;
+													width: 20px;
+													height: 20px;">
+
+
+                                            <label for="negative" style="color:white;font-size: 20px">Negative</label>
+
+
+                                            <input type="radio" id="result" name="result" value="positive" 
+                                            style="border: 0px;
+													width: 20px;
+													height: 20px;">
+
+
+                                            <label for="positive" style="color:white;font-size: 20px">Positive</label><br>
+                                            <br>
                                             <h5 style="color:white;"> &nbsp;Email:</h5>
                                            <input type="email" class="form-control" id="email2" name="email2"
                                                   placeholder="exampleEmail@gmail.com" /><br>
@@ -200,13 +219,12 @@ ini_set('display_errors', 0);
                                            $status ="Completed";
                                            $testID=$_POST['testID'];
                                            $currentDateTime= date('Y-m-d');
+                                           $result =$_POST['result'];
 
 
                                            $sqlUp="UPDATE covidtest
-                                           SET status = '$status', resultDate = '$currentDateTime'
+                                           SET status = '$status', resultDate = '$currentDateTime',results = '$result'
                                            WHERE id = '$testID';";
-
-
 
 
                                             if(isset($_POST['submit'])) {
@@ -241,8 +259,11 @@ ini_set('display_errors', 0);
                                              }
                                              $qryUp = mysqli_query($conn, $sqlUp);
 
-
-
+                                                if($mail){
+                                                echo '<script>';
+                                                echo 'alert(" Test Completed and Email have been sent!")';
+                                                echo '</script>';
+                                                echo '<script> window.location.assign("../bit216/updateTestResults.php"); </script>';}
 
                                            ?>
 
