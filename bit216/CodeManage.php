@@ -5,7 +5,7 @@
 error_reporting(0);
 ini_set('display_errors', 0);
 $testKit_Name=$_POST["testKit_Name"];
-$testKitName=$_POST["testKitName"];
+$testCentrename=$_POST["testCentrename"];
 $testKitStock=$_POST["testKitStock"];
 $update=$_POST["update"];
 $add=$_POST["add"];
@@ -14,11 +14,11 @@ $currentDateTime= date('Y-m-d');
 
 $sql2="UPDATE testkit
 SET stock = (stock +'$testKitStock')
-WHERE name = '$testKit_Name';";
+WHERE testCentre = '$testCentrename';";
 
 $sql4="UPDATE testkit
 SET updatedOn = '$currentDateTime'
-WHERE name = '$testKit_Name'";
+WHERE testCentre = '$testCentrename'";
 
 $sql3="SELECT * FROM user WHERE username = '{$_SESSION["findUser"]}' ";
 
@@ -28,7 +28,7 @@ $sql3="SELECT * FROM user WHERE username = '{$_SESSION["findUser"]}' ";
                                 $user=$row['name'];}
 
 $sql="insert into testkit(name, stock, officerName,testCentre)
-values('$testKitName','$testKitStock','$user','$testCentre');";
+values('$testKit_Name','$testKitStock','$user','$testCentre');";
 
 $qry4 = mysqli_query($conn, $sql4);
 

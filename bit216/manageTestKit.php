@@ -78,10 +78,17 @@ session_start();
             <div class="col-1"></div>
 
                 <div class="col-10">
+
                 <br>  <br>  <br>  <br>
+                    <h4 style="color: white;">Search</h4>
+                    <div align="center" style="width: 50%">
+                        <input type="text" name="search" id="search" class="form-control"/>
+                    </div>
+                    <br>
                 <h4 style="color:white;"> &nbsp;Test Kit Stock Collection</h4>
-                <div style="height:500px;overflow:auto;">
-                        <table class="table">
+                <div style="height:300px;overflow:auto;">
+                    <div class="table-responsive">
+                        <table class="table" id="employee_table">
                             <tr class="thead-dark">
                                 <th>Test Kit ID</th>
                                 <th>Test Name</th>
@@ -115,6 +122,7 @@ session_start();
 
                                     ?>
                         </table>
+                    </div>
                     </div>
                     <br>
             </div>
@@ -174,8 +182,8 @@ session_start();
                     <div class="card-body">
                         <p class="card-text">
                         <form method="POST" action="CodeManage.php">
-                            <h4 style="color:black;"> &nbsp;Test Kit ID:</h4><br>
-                            <select name="testKit_Name" class="form-control">
+                            <h4 style="color:black;"> &nbsp;Test Centre:</h4><br>
+                            <select name="testCentrename" class="form-control">
                             <option>
 
                                 <?php
@@ -195,8 +203,8 @@ session_start();
 
                                     if ($result1) {
                                       while ($row1= mysqli_fetch_array($result1)) {
-                                        $new=$row1["name"];
-                                        echo " TestKit Name <br> <option>$new<br></option> ";
+                                        $new=$row1["testCentre"];
+                                        echo " Test Centre Name <br> <option>$new<br></option> ";
                                       }
                                     }
                                       $conn ->close();
@@ -275,3 +283,26 @@ session_start();
 
 </body>
 </html>
+<script>
+    $(document).ready(function () {
+        $('#search').keyup(function () {
+            search_table($(this).val());
+        });
+
+        function search_table(value) {
+            $('#employee_table tr').each(function () {
+                var found = 'false';
+                $(this).each(function () {
+                    if ($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0) {
+                        found = 'true';
+                    }
+                });
+                if (found == 'true') {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        }
+    });
+</script>

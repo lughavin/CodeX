@@ -100,7 +100,7 @@ session_start();
                         <form method="POST" action="">
             <h4 style="color:white;"> &nbsp;Select Centre Name:</h4><br>
 
-            <select name="testCentre" class="form-control">
+            <select name="testCentre" class="form-control" style="width: 50%">
                 <option> Select Test Centre</option>
 
                     <?php
@@ -123,9 +123,15 @@ session_start();
             <button  id="check" value="check" name="check"
             class="button button-a button-big button-rouded"><b>Check</b></button>
                <br><br>
+                            <h4 style="color: white;">Search</h4>
+                            <div align="center" style="width: 50%">
+                                <input type="text" name="search" id="search" class="form-control"/>
+                            </div>
+                            <br>
               <h4 style="color:white;"> &nbsp;Test Reports</h4>
               <div style="height:500px;overflow:auto;">
-                        <table class="table">
+                  <div class="table-responsive">
+                        <table class="table" id="employee_table">
                             <tr class="thead-dark">
                                 <th>Test ID</th>
                                 <th>Test date</th>
@@ -164,6 +170,7 @@ session_start();
 
                                     ?>
                         </table>
+                  </div>
                     </div>
                         </form>
                     </div>
@@ -210,3 +217,26 @@ session_start();
 </footer>
 </body>
 </html>
+<script>
+    $(document).ready(function () {
+        $('#search').keyup(function () {
+            search_table($(this).val());
+        });
+
+        function search_table(value) {
+            $('#employee_table tr').each(function () {
+                var found = 'false';
+                $(this).each(function () {
+                    if ($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0) {
+                        found = 'true';
+                    }
+                });
+                if (found == 'true') {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        }
+    });
+</script>
