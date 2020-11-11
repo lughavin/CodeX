@@ -13,8 +13,8 @@ session_start();
     <meta content="" name="description">
 
     <!-- Favicons -->
-    <link href="img/favicon.png" rel="icon">
-    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="img/codeX.png" rel="icon">
+    <link href="img/codeX.png" rel="apple-touch-icon">
 
     <!-- Bootstrap CSS File -->
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -29,9 +29,19 @@ session_start();
     <!-- Main Stylesheet File -->
     <link href="css/style.css" rel="stylesheet">
 
+    <script type="text/javascript"> 
+        window.history.forward(); 
+        function noBack() { 
+            window.history.forward(); 
+        } 
+    </script> 
+
 </head>
 
 <body id="page-top">
+    
+
+    
 
 <!--/ Nav Star /-->
 <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
@@ -45,12 +55,11 @@ session_start();
         </button>
         <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" href="registerTestCentre.php">Register Test Centre</a>
+                
+                <li>
+                <a class="nav-link" href="managerInterface.php"><span class="sr-only"></span>Back</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link active" href="recordTester.html">Record Tester</a>
-                </li>
+                <li>
                 <a class="nav-link" href="logout.php"><span class="sr-only"></span>Logout</a>
                 </li>
 
@@ -61,16 +70,61 @@ session_start();
 
 <div id="home" class="intro2 route bg-image" style="background-image: url(img/dna.jpg)">
 
-
     <div class="overlay-itro"></div>
     <div class="container">
+
         <div class="row">
+
             <div class="col-1"></div>
+
                 <div class="col-10">
 
-                <blockquote class="blockquote text-center">
-                    <b style="font-size:500%; text-align: center; visibility: hidden">Manage Test Kit Stock</b>
-                </blockquote>
+                <br>  <br>  <br>  <br>
+                    <h4 style="color: white;">Search</h4>
+                    <div align="center" style="width: 50%">
+                        <input type="text" name="search" id="search" class="form-control"/>
+                    </div>
+                    <br>
+                <h4 style="color:white;"> &nbsp;Test Kit Stock Collection</h4>
+                <div style="height:300px;overflow:auto;">
+                    <div class="table-responsive">
+                        <table class="table" id="employee_table">
+                            <tr class="thead-dark">
+                                <th>Test Kit ID</th>
+                                <th>Test Name</th>
+                                <th>Stock</th>
+                                <th>Officer Name</th>
+                                <th>Test Centre</th>
+                                <th>Added On</th>
+                                <th>Updated ON</th>
+                            </tr>
+
+                            <?php
+
+                              include "./db.php";
+
+                                      $sql="SELECT * FROM testkit";
+                                      $result = $conn-> query($sql);
+
+                                      if ($result-> num_rows > 0) {
+                                        while ($row = $result-> fetch_assoc()) {
+                                          echo "<tr><td>". $row["id"]."</td><td>".$row["name"]."</td><td>".$row["stock"]."</td><td>"
+                                          .$row["officerName"]."</td><td>".$row["testCentre"]."</td><td>".$row["addOn"]."</td><td>"
+                                          .$row["updatedOn"]."</td></tr>";
+                                          # code...
+                                        }
+                                        echo "</table>";
+                                        # code...
+                                      }
+                                    else{
+                                      echo "No Test Kits found";
+                                    }
+
+                                    ?>
+                        </table>
+                    </div>
+                    </div>
+                    <br>
             </div>
         </div>
     </div>
@@ -95,6 +149,26 @@ session_start();
                             <input type="number" class="form-control" id=testKitStock name="testKitStock"
                                    required/>
                             <br>
+                            <select name="testCentre" class="form-control">
+                                <option>
+
+                                    <?php
+                                     include "./db.php";
+
+                                        $sql="SELECT * from testcentre  ";
+                                        $result1 = $conn-> query($sql);
+
+                                        if ($result1) {
+                                          while ($row1= mysqli_fetch_array($result1)) {
+                                            $new=$row1["centreName"];
+                                            echo " Select Test Centre <br> <option>$new<br></option> ";
+                                          }
+                                        }
+                                          $conn ->close();
+
+                                     ?>
+                                 </option>
+                           </select><br>
                         <button type="submit" id="add" name="add" value="add" class="button button-a button-big button-rouded"><b>Add</b></button>
                         </form>
                         </p>
@@ -108,8 +182,8 @@ session_start();
                     <div class="card-body">
                         <p class="card-text">
                         <form method="POST" action="CodeManage.php">
-                            <h4 style="color:black;"> &nbsp;Test Kit ID:</h4><br>
-                            <select name="testKitID" class="form-control">
+                            <h4 style="color:black;"> &nbsp;Test Centre:</h4><br>
+                            <select name="testCentrename" class="form-control">
                             <option>
 
                                 <?php
@@ -129,8 +203,8 @@ session_start();
 
                                     if ($result1) {
                                       while ($row1= mysqli_fetch_array($result1)) {
-                                        $new=$row1["id"];
-                                        echo " TestKit ID <br> <option>$new<br></option> ";
+                                        $new=$row1["testCentre"];
+                                        echo " Test Centre Name <br> <option>$new<br></option> ";
                                       }
                                     }
                                       $conn ->close();
@@ -146,10 +220,17 @@ session_start();
                         <button type="submit" name="update" id="update" value="update" class="button button-a button-big button-rouded"><b>Update</b></button>
                         </form>
                         </p>
+
+
+
                     </div>
                 </div>
             </div>
+
+
         </div>
+        <br>
+
 
     </div>
 </div>
@@ -202,3 +283,26 @@ session_start();
 
 </body>
 </html>
+<script>
+    $(document).ready(function () {
+        $('#search').keyup(function () {
+            search_table($(this).val());
+        });
+
+        function search_table(value) {
+            $('#employee_table tr').each(function () {
+                var found = 'false';
+                $(this).each(function () {
+                    if ($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0) {
+                        found = 'true';
+                    }
+                });
+                if (found == 'true') {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        }
+    });
+</script>

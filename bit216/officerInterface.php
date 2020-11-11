@@ -7,14 +7,14 @@ session_start();
 <head>
     <meta charset="utf-8">
 
-    <title>Update Test</title>
+    <title>Tester Interface</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
     <!-- Favicons -->
-    <link href="img/favicon.png" rel="icon">
-    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="img/codeX.png" rel="icon">
+    <link href="img/codeX.png" rel="apple-touch-icon">
 
     <!-- Bootstrap CSS File -->
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -28,6 +28,13 @@ session_start();
 
     <!-- Main Stylesheet File -->
     <link href="css/style.css" rel="stylesheet">
+
+    <script type="text/javascript"> 
+        window.history.forward(); 
+        function noBack() { 
+            window.history.forward(); 
+        } 
+    </script> 
 
 </head>
 
@@ -45,11 +52,9 @@ session_start();
         </button>
         <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" href="index.html">Home</a>
-                </li>
 
-                <a class="nav-link" href="testerInterface.php"><span class="sr-only"></span>Back</a>
+
+                <a class="nav-link" href="logout.php"><span class="sr-only"></span>Logout</a>
                 </li>
 
             </ul>
@@ -58,6 +63,7 @@ session_start();
 </nav>
 
 <div id="home" class="intro2 route bg-image" style="background-image: url(img/dna.jpg)">
+
 
 
     <div class="overlay-itro"></div>
@@ -74,44 +80,31 @@ session_start();
                             <div class="title-box-2">
                                 <br>
                                 <h5 style="color:white;" class="title-left">
-                                    Enter the patient details:
+                                     <?php
+                                        include "./db.php";
+
+                                        $sql="SELECT * FROM user WHERE username = '{$_SESSION["findUser"]}' ";
+
+                                        $result = mysqli_query($conn, $sql);
+                                        // Echo session variables that were set on previous page
+                                        while ($row = $result->fetch_assoc()) {
+                                        echo "<b><h2 style='color:white;' > Welcome ".$row['name']."!</h2></b>"."";}
+
+                                    ?>
                                 </h5>
+                                <br><br>
+                                <img src="img/report.png" style="width:100px;height:70px"><br>
+                                <h4 style="color: white; ">Generate Test Report.</h4>
+                                <a style="background-color: grey" href="testReport.php" class="button"> View </a>
+
+                                
                             </div>
-                            <form method="POST" action="CodeUpdateTest.php">
-
-                                <h4 style="color:white;"> &nbsp; Patient ID:</h4>
-                                <input type="text" class="form-control" id="id" name="id" required/><br>
-
-
-                                <div class="form-group">
-                                    <h4 style="color:white;"> &nbsp;Patient Type:</h4>
-                                    <select class="form-control" id="patientType" name="patientType">
-                                        <option value="Returnee">Returnee</option>
-                                        <option value="Quarantined">Quarantined</option>
-                                        <option value="Close Contact">Close Contact</option>
-                                        <option value="Infected">Infected</option>
-                                        <option value="Suspected">Suspected</option>
-                                    </select>
-                                </div>
-                                <br>
-                                <h4 style="color:white;"> &nbsp;Symptoms:</h4>
-                                <input type="text" class="form-control" id="symptoms" name="symptoms"
-                                       placeholder="Redness in the eyes, Running Nose , etc" required/>
-
-
-                                <br>
-                                <button type="submit" name="submit" onclick=fnConfirm() id="submit"
-                                        class="button button-a button-big button-rouded">Submit
-                                </button>
-
-                                <button type="reset" value="Reset" class="button button-a button-big button-rouded">
-                                    Reset
-                                </button>
-                            </form>
                         </div>
                     </div>
                 </div>
                 <br><br>
+                <h4 style="color:white;"></h4>
+
 
             </div>
         </div>
@@ -136,7 +129,6 @@ session_start();
 
 <!-- Template Main Javascript File -->
 <script src="js/main.js"></script>
-<!-- JavaScript Confirm-->
 <footer id="main-footer">
   <div class="row">
     <div class="col-9">

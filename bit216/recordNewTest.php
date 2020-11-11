@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -13,8 +14,8 @@ session_start();
     <meta content="" name="description">
 
     <!-- Favicons -->
-    <link href="img/favicon.png" rel="icon">
-    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="img/codeX.png" rel="icon">
+    <link href="img/codeX.png" rel="apple-touch-icon">
 
     <!-- Bootstrap CSS File -->
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -28,6 +29,24 @@ session_start();
 
     <!-- Main Stylesheet File -->
     <link href="css/style.css" rel="stylesheet">
+
+    <script type="text/javascript"> 
+        window.history.forward(); 
+        function noBack() { 
+            window.history.forward(); 
+        } 
+    </script> 
+
+    <script>
+        function myFunction() {
+          var x = document.getElementById("password");
+          if (x.type === "password") {
+            x.type = "text";
+          } else {
+            x.type = "password";
+          }
+        }
+        </script>
 
 </head>
 
@@ -78,26 +97,32 @@ session_start();
                                 </h5>
                             </div>
                             <form method="POST" action="CodeRecordTest.php">
-                                <h4 style="color:white;"> &nbsp;Name:</h4>
+                                <h4 style="color:white; text-transform: capitalize;"> &nbsp;Name:</h4>
                                 <input type="text" class="form-control" id="patientName" name="patientName"
                                        placeholder="Name" required/>
 
                                 <br>
                                 <h4 style="color:white;"> &nbsp;Username:</h4>
                                 <input type="text" class="form-control" id="username" name="username" required/><br>
-                                <br>
-                                <h4 style="color:white;"> &nbsp;Password:</h4>
-                                <input type="password" class="form-control" id="password" name="password"
-                                       required/><br>
-                                 <h4 style="color:white;"> &nbsp;ID:</h4><br>
-                                <input type="text" class="form-control" id="passport" name="passport"
-                                       placeholder="ID Number" required/>
+                                
+                                <h4 style="color:white;" > &nbsp;Password:</h4>
+                                <input type="password" minlength="8" class="form-control" id="password" name="password"
+                                       required/>
+                                       <input type="checkbox" onclick="myFunction()">Show Password</input>
+
+                                       <br><br>
+                                
+                                <h4 style="color:white;"> &nbsp;Email:</h4>
+                                <input type="email" class="form-control" id="email" name="email" required/><br>
+                            
+                                 <h4 style="color:white;"> &nbsp;IC/Passport Number:</h4>
+                                <input type="text" minlength="10" maxlength="12" class="form-control" id="passport" name="passport"
+                                       placeholder="IC Number/ Passport Number" required/>
                                 <br>
 
                                 <div class="form-group">
                                     <label for="patientType"><h4 style="color:white;"> Patient Type</h4></label>
                                     <select class="form-control" id="patientType" name="patientType">
-                                        <option value="Returnee">Returnee</option>
                                         <option value="Quarantined">Quarantined</option>
                                         <option value="Close Contact">Close Contact</option>
                                         <option value="Infected">Infected</option>
@@ -110,6 +135,39 @@ session_start();
                                        placeholder="Redness in the eyes, Running Nose , etc" required/>
 
 
+                                <br>
+                                 <?php
+                                    include "./db.php";
+
+                                    $sql="SELECT * FROM user WHERE username = '{$_SESSION["findUser"]}' ";
+
+                                    $result = mysqli_query($conn, $sql);
+                                    // Echo session variables that were set on previous page
+                                    while ($row = $result->fetch_assoc()) {
+                                    $user=$row['name'];
+                                    }
+                                ?>
+                                 <h4 style="color:white;"> &nbsp;Test Centre:</h4>
+                                    <select name="testcentre" class="form-control">
+                                        <option>
+
+                                            <?php
+                                             include "./db.php";
+
+                                                $sql2="SELECT * from testcentre WHERE tester = '$user' ";
+                                                $result1 = $conn-> query($sql2);
+
+                                                if ($result1) {
+                                                  while ($row1= mysqli_fetch_array($result1)) {
+                                                    $new=$row1["centreName"];
+                                                    echo " <option>$new<br></option> ";
+                                                  }
+                                                }
+                                                  $conn ->close();
+
+                                             ?>
+                                        </option>
+                                     </select>
                                 <br>
                                 <button type="submit" name="submit" onclick=fnConfirm() id="submit"
                                         class="button button-a button-big button-rouded">Submit

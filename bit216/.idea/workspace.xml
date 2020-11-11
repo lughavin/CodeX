@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c0ac2918-4a42-453b-9ae2-aa5ec182975a" name="Default Changelist" comment="" />
+    <list default="true" id="6f61de8b-b200-4942-9700-225dea5c5b54" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectId" id="1iYKfLzz8zwmso8C0UHsQ8RTHIr" />
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/phpmailer/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="ProjectId" id="1jbASUieVtNVXipkxp8RdUnIstE" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -16,7 +20,6 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -27,31 +30,21 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c0ac2918-4a42-453b-9ae2-aa5ec182975a" name="Default Changelist" comment="" />
-      <created>1602079189792</created>
+      <changelist id="6f61de8b-b200-4942-9700-225dea5c5b54" name="Default Changelist" comment="" />
+      <created>1604062418588</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1602079189792</updated>
-      <workItem from="1602079191106" duration="391000" />
-      <workItem from="1602079596640" duration="10035000" />
-      <workItem from="1602090921819" duration="201000" />
-      <workItem from="1602092349502" duration="54000" />
-      <workItem from="1602134545381" duration="5962000" />
-      <workItem from="1602160923302" duration="8385000" />
-      <workItem from="1602169648609" duration="49000" />
-      <workItem from="1602234049387" duration="840000" />
-      <workItem from="1602321655226" duration="87000" />
-      <workItem from="1602321905655" duration="245000" />
-      <workItem from="1602512391905" duration="7851000" />
-      <workItem from="1602828554463" duration="860000" />
-      <workItem from="1602838441339" duration="599000" />
-      <workItem from="1602906333015" duration="41000" />
-      <workItem from="1602929119551" duration="4887000" />
-      <workItem from="1602934659041" duration="174000" />
-      <workItem from="1603010141487" duration="66000" />
-      <workItem from="1603011966777" duration="1749000" />
-      <workItem from="1603017612664" duration="3084000" />
-      <workItem from="1603036130050" duration="1144000" />
+      <updated>1604062418588</updated>
+      <workItem from="1604062420218" duration="89000" />
+      <workItem from="1604062586570" duration="6694000" />
+      <workItem from="1604131142583" duration="2009000" />
+      <workItem from="1604133194268" duration="715000" />
+      <workItem from="1604321986732" duration="8242000" />
+      <workItem from="1604492459471" duration="10083000" />
+      <workItem from="1604580889110" duration="2052000" />
+      <workItem from="1604582999751" duration="1320000" />
+      <workItem from="1604905488307" duration="1449000" />
+      <workItem from="1605097340950" duration="14057000" />
     </task>
     <servers />
   </component>
@@ -59,13 +52,9 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="461" y="165" key="SettingsEditor" timestamp="1602079585183">
+    <state x="704" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604133221547">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1602079585183" />
-    <state x="279" y="153" width="730" height="854" key="dock-window-1" timestamp="1602145988178">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="279" y="153" width="730" height="854" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1602145988178" />
+    <state x="704" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1604133221547" />
   </component>
 </project>

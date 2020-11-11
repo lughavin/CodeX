@@ -13,8 +13,8 @@ session_start();
     <meta content="" name="description">
 
     <!-- Favicons -->
-    <link href="img/favicon.png" rel="icon">
-    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="img/codeX.png" rel="icon">
+    <link href="img/codeX.png" rel="apple-touch-icon">
 
     <!-- Bootstrap CSS File -->
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -28,6 +28,13 @@ session_start();
 
     <!-- Main Stylesheet File -->
     <link href="css/style.css" rel="stylesheet">
+
+    <script type="text/javascript"> 
+        window.history.forward(); 
+        function noBack() { 
+            window.history.forward(); 
+        } 
+    </script> 
 
 </head>
 
@@ -45,9 +52,6 @@ session_start();
         </button>
         <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" href="index.html">Home</a>
-                </li>
 
                 <a class="nav-link" href="logout.php"><span class="sr-only"></span>Logout</a>
                 </li>
@@ -88,14 +92,20 @@ session_start();
                                     ?>
                                 </h5>
                                 <br><br>
-                                <img src="img/thermometer.png" style="width:35px;height:70px">
-                                <h4 style="color: white; ">Test for new patient.</h4>
-                                <a href="recordNewTest.php" class="button"> Record new test </a>
+                                <img src="img/thermometer.png" style="width:35px;height:70px"><br>
+                                <h4 style="color: white; ">Test For New Patient.</h4>
+                                <a style="background-color: grey" href="recordNewTest.php" class="button"> Record new test </a>
 
                                 <br><br>
-                                <img src="img/update.png" style="width:70px;height:70px">
-                                <h4 style="color: white; ">Update for returning patient.</h4>
-                                <a href="UpdateTest.php" class="button"> Update test result</a>
+                                <img src="img/add.png" style="width:60px;height:60px"><br>
+                                <br>
+                                <h4 style="color: white; ">Add New Test for Existing User.</h4>
+                                <a style="background-color: grey" href="addNewExistingTest.php" class="button"> Add New Test</a>
+
+                                <br><br>
+                                <img src="img/update.png" style="width:70px;height:70px"><br>
+                                <h4 style="color: white; ">Update Patient.</h4>
+                                <a style="background-color: grey" href="UpdateTestResults.php" class="button"> Update Test result</a>
                             </div>
                         </div>
                     </div>

@@ -13,8 +13,8 @@ session_start();
     <meta content="" name="description">
 
     <!-- Favicons -->
-    <link href="img/favicon.png" rel="icon">
-    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="img/codeX.png" rel="icon">
+    <link href="img/codeX.png" rel="apple-touch-icon">
 
     <!-- Bootstrap CSS File -->
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -28,6 +28,13 @@ session_start();
 
     <!-- Main Stylesheet File -->
     <link href="css/style.css" rel="stylesheet">
+
+    <script type="text/javascript"> 
+        window.history.forward(); 
+        function noBack() { 
+            window.history.forward(); 
+        } 
+    </script> 
 
 </head>
 
@@ -45,12 +52,11 @@ session_start();
         </button>
         <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" href="recordTester.html">Record Test Officer</a>
+                
+                <li>
+                <a class="nav-link" href="managerInterface.php"><span class="sr-only"></span>Back</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link active" href="manageTestKit.php">Manage Test Kit Stock</a>
-                </li>
+                <li>
                 <a class="nav-link" href="logout.php"><span class="sr-only"></span>Logout</a>
                 </li>
 
@@ -76,7 +82,7 @@ session_start();
                             <div class="title-box-2">
                                 <br>
                                 <h5 style="color:white;" class="title-left">
-                                    Please enter the name of the test centre you would like to register.
+                                    Register Test Centre
                                 </h5><br>
 
                                 <?php
@@ -87,22 +93,47 @@ session_start();
                                 $result = mysqli_query($conn, $sql);
                                 // Echo session variables that were set on previous page
                                 while ($row = $result->fetch_assoc()) {
-                                echo "<b><h2 style='color:white;' > Welcome ".$row['name']."</h2></b>"."<br>";}
-
-
+                                echo "<b><h2 style='color:white;' > Welcome ".$row['name']."</h2></b>";}
                                 ?>
 
                             </div>
 
+                            
+                        </div>
+
+                    </div>
+                    <h5 style="color:white;" >
+                                    Please enter the name of the test centre to register!
+                                </h5><br>
+
                             <form method="POST" action="CodeRegisterTestCentre.php">
                                 <h4 style="color:white;"> &nbsp;Test Centre Name:</h4><br>
-                                <input type="text" class="form-control" id="testCentre" name="testCentre"
+                                <input type="text" class="form-control" id="testCentre" name="testCentre" minlength="4
                                        placeholder="Test Centre Name" required/>
                                 <br>
+
+                                <select name="tester" class="form-control">
+                                    <option>
+
+                                        <?php
+                                         include "./db.php";
+
+                                            $sql="SELECT * from user WHERE position = 'Tester' ";
+                                            $result1 = $conn-> query($sql);
+
+                                            if ($result1) {
+                                              while ($row1= mysqli_fetch_array($result1)) {
+                                                $new=$row1["name"];
+                                                echo " Select Tester <br> <option>$new<br></option> ";
+                                              }
+                                            }
+                                              $conn ->close();
+
+                                         ?>
+                                     </option>
+                                         </select><br>
                                 <button type="submit" id="register" name="register" class="button button-a button-big button-rouded"><b>Register</b></button>
                             </form>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

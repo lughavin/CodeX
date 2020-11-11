@@ -13,8 +13,8 @@ session_start();
     <meta content="" name="description">
 
     <!-- Favicons -->
-    <link href="img/favicon.png" rel="icon">
-    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="img/codeX.png" rel="icon">
+    <link href="img/codeX.png" rel="apple-touch-icon">
 
     <!-- Bootstrap CSS File -->
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -28,6 +28,13 @@ session_start();
 
     <!-- Main Stylesheet File -->
     <link href="css/style.css" rel="stylesheet">
+
+    <script type="text/javascript"> 
+        window.history.forward(); 
+        function noBack() { 
+            window.history.forward(); 
+        } 
+    </script> 
 
 </head>
 
@@ -45,10 +52,12 @@ session_start();
         </button>
         <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" href="index.html">Home</a>
+                
+                <li>
+                <a class="nav-link" href="patientInterface.php"><span class="sr-only"></span>Back</a>
                 </li>
 
+                <li>
                 <a class="nav-link" href="logout.php"><span class="sr-only"></span>Logout</a>
                 </li>
 
@@ -71,33 +80,80 @@ session_start();
                     <!--<div id="contact" class="box-shadow-full">-->
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="title-box-2">
-                                <br>
-                                <h5 style="color:white;" class="title-left">
-                                    Welcome Patient
-                                </h5>
 
-                                <br><br>
-                                
-                                <h4 style="color: white; ">View Testing History</h4>
+                            <br>
+                            <?php
+                                        include "./db.php";
+
+                                        $sql="SELECT * FROM user WHERE username = '{$_SESSION["findUser"]}' ";
+
+                                        $result = mysqli_query($conn, $sql);
+                                        // Echo session variables that were set on previous page
+                                        while ($row = $result->fetch_assoc()) {
+                                        echo "<b><h2 style='color:white;' > Welcome ".$row['name']."!</h2></b>"."<br>";}
+
+                                    ?>
                                 <img src="img/update.png" style="width:70px;height:70px">
-
-                                <tr>
-                                    <th>Status</th>
-                                    <th>Patient Name</th>
-                                    <th>Patient Type</th>
-                                    <th>Symptoms</th>
-                                </tr>
-
-                                <?php
-                                $conn = mysqli_connect("localhost" , "root", "", "bit216");
-
-                                ?>
-
-
-
-                            </div>
+                                <h4 style="color: white; ">View Testing History</h4>
+                                <br>
+                                
                         </div>
+                        <?php
+
+                        $sql3="SELECT * FROM user WHERE username = '{$_SESSION["findUser"]}' ";
+
+                            $result = mysqli_query($conn, $sql3);
+                            // Echo session variables that were set on previous page
+                            while ($row = $result->fetch_assoc()) {
+                            $user=$row['name'];}
+
+                        ?>
+
+
+                        <div style="height:300px; width:100%; overflow:auto;">
+                        <table class="table">
+                            <tr class="thead-dark">
+                                <th>Test ID</th>
+                                <th>Patient Name</th>
+                                <th>Patient ID</th>
+                                <th>Test Centre</th>
+                                <th>Officer Name</th>
+                                <th>Test Status</th>
+                                <th>Result</th>
+                                <th>Result Date</th>
+                                <th>Test Date</th>
+                            </tr>
+
+                            <?php
+
+                            include "./db.php";
+
+                            $sql="SELECT * FROM covidtest WHERE patientName = '$user'";
+                            $result = $conn-> query($sql);
+
+                            if ($result-> num_rows > 0) {
+                                while ($row = $result-> fetch_assoc()) {
+                                  echo "<tr><td>". $row["id"]."</td>
+                                  <td>".$row["patientName"]."</td>
+                                  <td>".$row["patientID"]."</td>
+                                  <td>".$row["testCentre"]."</td>
+                                  <td>".$row["officerName"]."</td>
+                                  <td>".$row["status"]."</td>
+                                  <td>".$row["results"]."</td>
+                                  <td>".$row["resultDate"]."</td>
+                                  <td>".$row["testdate"]."</td><td>";
+
+                              }
+                              echo "</table>";
+                          }
+                          else{
+                              echo "No Test Done";
+                          }
+
+                          ?>
+                      </table>
+                  </div>
+
                     </div>
                 </div>
                 <br><br>

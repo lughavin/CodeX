@@ -13,8 +13,8 @@ session_start();
     <meta content="" name="description">
 
     <!-- Favicons -->
-    <link href="img/favicon.png" rel="icon">
-    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="img/codeX.png" rel="icon">
+    <link href="img/codeX.png" rel="apple-touch-icon">
 
     <!-- Bootstrap CSS File -->
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -28,6 +28,13 @@ session_start();
 
     <!-- Main Stylesheet File -->
     <link href="css/style.css" rel="stylesheet">
+
+    <script type="text/javascript"> 
+        window.history.forward(); 
+        function noBack() { 
+            window.history.forward(); 
+        } 
+    </script> 
 
 </head>
 
@@ -45,9 +52,6 @@ session_start();
         </button>
         <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" href="index.html">Home</a>
-                </li>
 
                 <a class="nav-link" href="logout.php"><span class="sr-only"></span>Logout</a>
                 </li>
@@ -90,17 +94,17 @@ session_start();
                                 <br><br>
                                 <img src="img/testCentre.png" style="width:100px;height:70px">
                                 <h4 style="color: white; ">Registering A New Test Centre.</h4>
-                                <a href="registerTestCentre.php" class="button">Register Test Centre</a>
+                                <a style= "background-color: grey" href="registerTestCentre.php" class="button">Register Test Centre</a>
 
                                 <br><br>
-                                <img src="img/doctor.png" style="width:70px;height:70px">
+                                <img src="img/doctor2.png" style="width:70px;height:70px">
                                 <h4 style="color: white; ">Record A New Officer Who Will Be A Tester.</h4>
-                                <a href="recordTester.html" class="button">Record Tester</a>
+                                <a style= "background-color: grey" href="recordTester.html" class="button">Record Tester</a>
 
                                 <br><br>
-                                <img src="img/update.png" style="width:70px;height:70px">
+                                <img src="img/calculator.png" style="width:80px;height:80px">
                                 <h4 style="color: white; ">Manage Test Kit Stock.</h4>
-                                <a href="manageTestKit.php" class="button">Manage Test Kit</a>
+                                <a style= "background-color: grey" href="manageTestKit.php" class="button">Manage Test Kit</a>
                             </div>
                         </div>
                     </div>
@@ -144,5 +148,6 @@ session_start();
 
   </div>
 </footer>
+
 </body>
 </html>

@@ -34,6 +34,11 @@ a:hover {
   transition: all 0.5s ease-in-out;
 }
 
+textarea {
+    width: 300px;
+    height: 300px;
+}
+
 .p-r {
   position: relative;
 }
@@ -81,6 +86,7 @@ a:hover {
   margin-right: 4px;
   overflow: hidden;
 }
+
 
 .bg-image {
   background-repeat: no-repeat;
@@ -145,6 +151,12 @@ a:hover {
 
 .title-box {
   margin-bottom: 4rem;
+}
+
+#largeInput
+{
+    height:200px;
+    font-size:14pt;
 }
 
 .title-a {
@@ -1194,6 +1206,8 @@ a:hover {
   color: #fff;
 }
 
+
+
 /*======================================
 //--//-->   CONTACT
 ======================================*/
@@ -1409,5 +1423,18 @@ footer .credits a {
 @media (max-width: 768px) {
   .back-to-top {
     bottom: 15px;
+  }
+
+  table.dataTable thead .sorting:after,
+  table.dataTable thead .sorting:before,
+  table.dataTable thead .sorting_asc:after,
+  table.dataTable thead .sorting_asc:before,
+  table.dataTable thead .sorting_asc_disabled:after,
+  table.dataTable thead .sorting_asc_disabled:before,
+  table.dataTable thead .sorting_desc:after,
+  table.dataTable thead .sorting_desc:before,
+  table.dataTable thead .sorting_desc_disabled:after,
+  table.dataTable thead .sorting_desc_disabled:before {
+    bottom: .5em;
   }
 }
